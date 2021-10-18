@@ -1,13 +1,16 @@
+import random
 from flask import request, render_template, Blueprint
 from MushroomClassification.models import resource_model
 
 re_bp = Blueprint('resource', __name__, url_prefix='/resource')
 re_service = resource_model.Service()
 
+
 # 입력 폼
 @re_bp.route('/resourceForm')
 def resourceForm():
     return render_template('resourceForm.html')
+
 
 # 버섯도감 목록 검색
 @re_bp.route('/searchRequest', methods=['POST'])
@@ -24,12 +27,20 @@ def searchRequest():
     List = re_service.searchRequest(st, sw, numOfRows, pageNo)
     return render_template('searchRequest.html', List=List)
 
+
 # 버섯도감 상세정보 조회
 @re_bp.route('/infoRequest', methods=['POST'])
 def infoRequest():
     # 도감번호
     q1 = request.form['q1']
-    print(q1)
     List = re_service.infoRequest(q1)
     return render_template('infoRequest.html', List=List)
+
+
+# 식용/독버섯 이미지 테스트
+@re_bp.route('/testSurviveOrDeath')
+def testSurviveOrDeath():
+    x = random.randrange(1, 6)
+    url = "/imgQuestion/question" + str(x) + ".html"
+    return render_template(url)
 
