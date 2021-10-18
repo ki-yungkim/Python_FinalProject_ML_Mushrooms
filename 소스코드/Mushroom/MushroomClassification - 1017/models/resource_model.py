@@ -106,7 +106,6 @@ class Service:
                     cont21 = '불명'
 
                 results.append([familyKorNm, familyNm, genusKorNm, genusNm, fngsGnrlNm, fngsScnm, cont12, occrrSsnNm, occrrFomDscrt, cont21])
-            print(results)
             return results
 
         else:
