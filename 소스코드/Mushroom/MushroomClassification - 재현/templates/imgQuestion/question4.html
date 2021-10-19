@@ -5,10 +5,36 @@
     <title>Question 4</title>
 </head>
 <body>
-<h3>Question4</h3>
-<!-- 되돌아가기 -->
+
+<!-- 질문지 -->
 <div>
-      <button onclick="history.back()">되돌아가기</button>
+    <h3>이 중에 식용버섯은 무엇일까요?</h3>
+</div>
+
+<!-- 보기 항목 -->
+<div >
+    <form action="/resource/wrongAnswer" method="POST">
+        <input type="hidden" name="name" id="name" value="턱받이금버섯">
+
+    <table border="1">
+        <tr>
+            <td><input type="IMAGE" src="https://raw.githubusercontent.com/FinalMushrooms/Playdata_Final_Mushrooms/main/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%86%8C%EC%8A%A4/%ED%84%B1%EB%B0%9B%EC%9D%B4%EA%B8%88%EB%B2%84%EC%84%AF3.jpg" width="400" height="250" name="submit" value="submit"></td>
+            <td><input type="IMAGE" src="https://raw.githubusercontent.com/FinalMushrooms/Playdata_Final_Mushrooms/main/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%86%8C%EC%8A%A4/%ED%84%B1%EB%B0%9B%EC%9D%B4%EA%B8%88%EB%B2%84%EC%84%AF2.jpg" width="400" height="250" name="submit" value="submit"></td>
+        </tr>
+        <tr>
+            <td><input type="IMAGE" src="https://raw.githubusercontent.com/FinalMushrooms/Playdata_Final_Mushrooms/main/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%86%8C%EC%8A%A4/%ED%84%B1%EB%B0%9B%EC%9D%B4%EA%B8%88%EB%B2%84%EC%84%AF.jpg" width="400" height="250" name="submit" value="submit"></td>
+        </form>
+        <form action="/resource/correctAnswer" method="POST">
+            <input type="hidden" name="name2" id="name2" value="무리우산버섯">
+            <td><input type="IMAGE" src="https://raw.githubusercontent.com/FinalMushrooms/Playdata_Final_Mushrooms/main/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%86%8C%EC%8A%A4/%EB%AC%B4%EB%A6%AC%EC%9A%B0%EC%82%B0%EB%B2%84%EC%84%AF.jpg" width="400" height="250" name="submit" value="submit"></td>
+        </form>
+        </tr>
+    </table>
+</div>
+
+<!-- 메인으로 -->
+<div>
+     <a href="/">메인으로</a>
 </div>
 </body>
 </html>
