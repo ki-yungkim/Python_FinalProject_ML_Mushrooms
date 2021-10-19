@@ -1,4 +1,5 @@
 import requests
+import random
 from bs4 import BeautifulSoup
 
 
@@ -19,11 +20,11 @@ class Resource:
 class Service:
     def __init__(self):
         self.base_url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService'
-        self.api_key = 'z87XiFqBjizhP7gRBLRttGzJYgKrESmLrKQNmb1aVULKjUTS9f6TBr2rppZBMSEXbq1ovC5bUdGj2N%2FYD6pKPg%3D%3D'
+        self.api_key = '%2B7ENsmTJVHqwerwPZHnG8GPPLGXJ%2Bim42X9aFmr08YiAZPAUHql4rn9Yvrcpi3MAmOl2FONgiJbMyeOXDzrqEw%3D%3D'
 
     # 버섯도감 목록 검색
     def searchRequest(self, st, sw, numOfRows, pageNo):
-        url = self.base_url + '/fngsIlstrSearch?ServiceKey=' + self.api_key + '&st='+ st + '&sw=' + sw + '&numOfRows=' + numOfRows + '&pageNo=' + pageNo
+        url = self.base_url + '/fngsIlstrSearch?ServiceKey=' + self.api_key + '&st=' + st + '&sw=' + sw + '&numOfRows=' + numOfRows + '&pageNo=' + pageNo
         html = requests.get(url).text
         root = BeautifulSoup(html, 'lxml-xml')
         code = root.find('resultCode').text
@@ -53,7 +54,7 @@ class Service:
                     for item in items:
                         # 식용여부
                         cont12 = item.find('cont12').text
-                        if cont12 ==' ':
+                        if cont12 == ' ':
                             cont12 = '불명'
 
                 results.append([imgUrl, fngsGnrlNm, fngsScnm, fngsPilbkNo, cont12])
@@ -112,4 +113,19 @@ class Service:
             print('오류발생코드: ', code)
             print('오류 메시지: ', resultMsg)
 
-
+    # 이미지퀴즈 오답페이지에 들어가는 버섯명언
+    def advice(self):
+        advice = [
+            "버섯은 경고 표지를 달고 오지 않는다. 여러분은 입에 넣기 전에 손에 쥐고 있는 것이 무엇인지 알고 있어야 한다.",
+            "자문을 청하는 사람은 버섯에 중독되지 않는 사람이다.(남태평양 독립국 토가 속담)",
+            "의심나면 그대로 내버려두라!(If in doubt, leave it!)",
+            "의심나면 그냥 버려라!(If in doubt, discard it!)",
+            "버섯은 날로(生으로) 먹는 것이 아니고, 알코올음료와 함께 먹는 것도 아니며, 많이 먹는 것이 아니다.",
+            "식용버섯을 버리는 것이 독버섯을 먹고 중독되는 것보다 백번 낫다.",
+            "기억하라: 야생버섯 식용은 (클라이밍이나 스노우보드와 같은) 위험한 스포츠(extreme sport)도 아니고,"
+            " 시식해 본 가장 긴 버섯목록 만들기 경쟁도 아니다.(Greg A. Marley)",
+            "모든 버섯은 먹을 수 있지만, 어떤 버섯들은 오직 단 한번만 먹을 수 있다.",
+            "늙은 버섯채취자와 용감한 버섯 채취자는 많지만 늙고 용감한 버섯 채취자는 없다"
+        ]
+        msg = random.choice(advice)
+        return msg
