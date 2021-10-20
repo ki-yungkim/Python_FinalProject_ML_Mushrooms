@@ -66,3 +66,12 @@ def correctAnswer():
     name = request.form['name2']
     return render_template('/imgQuestion/correctAnswer.html', name=name)
 
+
+# 식용버섯 요리 리스트
+@re_bp.route('/mushroomDish')
+def mushroomDish():
+    List = re_service.mushroomDish()
+    return render_template('/dish/mushroomDish.html', List=List)
+
+
+

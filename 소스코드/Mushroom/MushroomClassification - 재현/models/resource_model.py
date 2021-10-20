@@ -129,3 +129,29 @@ class Service:
         ]
         msg = random.choice(advice)
         return msg
+
+    # 버섯요리
+    def mushroomDish(self):
+        url = 'http://apis.data.go.kr/1390804/NihhsRdaLifeInfo/selectLifeList?serviceKey=z87XiFqBjizhP7gRBLRttGzJYgKrESmLrKQNmb1aVULKjUTS9f6TBr2rppZBMSEXbq1ovC5bUdGj2N%2FYD6pKPg%3D%3D&iSubCode=A05&searchType=2&searchWord=버섯&pageNo=1&numOfRows=20'
+        html = requests.get(url).text
+        root = BeautifulSoup(html, 'lxml-xml')
+        code = root.find('resultCode').text
+        resultMsg = root.find('resultMsg').text
+        results = []
+
+        if code == '1':
+            items = root.select('result')
+            for item in items:
+                # 이미지주소
+                fileImageUrl = item.find('fileImageUrl').text
+                # 제목
+                title = item.find('title').text
+                # 내용
+                content = item.find('content').text
+
+                results.append([fileImageUrl, title, content])
+            return results
+
+        else:
+            print('오류발생코드: ', code)
+            print('오류 메시지: ', resultMsg)
