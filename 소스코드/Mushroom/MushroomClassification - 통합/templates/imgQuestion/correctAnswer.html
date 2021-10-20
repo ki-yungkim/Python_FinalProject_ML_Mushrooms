@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correct</title>
+</head>
+<body>
+<!-- 정답여부 -->
+<div>
+    <h3>당신이 고른 버섯은 <span style="color:green">식용</span>버섯인 '{{name}}'입니다.</h3>
+</div>
+
+<!-- 버섯에 관한 명언 -->
+<h3>하지만, 야생버섯을 먹는다면, 인터넷에서 얻은 어떠한 정보도 식용버섯을 구분짓는 기준으로 사용하시면 안됩니다.</h3>
+
+</div>
+
+<!-- 버섯정보 -->
+<form action="/resource/searchRequest" method="POST">
+    <div>
+        <input type="hidden" name="st" value="1">
+        <input type="hidden" name="numOfRows" value="10">
+        <input type="hidden" name="pageNo" value="1">
+        <input type="hidden" name="sw" value="{{name}}">
+        <input type="submit" value="이 버섯에 대한 정보 확인하기">
+    </div>
+</form>
+
+<!-- 되돌아가기 -->
+<div>
+    <a href="/resource/resourceForm">다른 버섯정보 확인하기</a>
+</div>
+
+<!-- 메인으로 -->
+<div>
+     <a href="/">메인으로</a>
+</div>
+</body>
+</html>
