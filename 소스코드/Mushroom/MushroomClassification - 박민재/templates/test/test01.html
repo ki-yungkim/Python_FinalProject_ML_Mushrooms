@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test01</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}"/>
+</head>
+<body>
+
+<form name="test01" method="GET" action="/mushroom/test01_result">
+    <label for="st">검색구분</label>
+    <input type="text" id="st" name="st"/>
+    <label for="sw">검색어</label>
+    <input type="text" id="sw" name="sw"/>
+    <label for="numOfRows">한페이지 결과수</label>
+    <input type="text" id="numOfRows" name="numOfRows"/>
+    <label for="pageNo">페이지 번호</label>
+    <input type="text" id="pageNo" name="pageNo"/>
+    <input type="submit" id="test01Submit" value="찾기">
+</form>
+
+
+</body>
+</html>
