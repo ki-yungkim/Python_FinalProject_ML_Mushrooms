@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#featureSearch').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
     <title>feature</title>
 </head>
 <body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>분석 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+
 <h3>버섯특징</h3>
-<form action="/feature/search" method="post">
+<form action="/feature/search" id="featureSearch" method="post">
 <table border="1">
     <tr>
         <td>멍</td>
