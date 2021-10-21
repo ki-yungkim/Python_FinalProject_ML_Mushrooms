@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>버섯 사진 판별 결과 보기</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}"/>
+</head>
+<body>
+<h3>사진 판별 결과</h3>
+<div class="">
+    {% if img != None %}
+    <p>판별한 버섯의 명칭은 {{ res }} 입니다.</p>
+    <img class="imgClassifierOutImg" src="{{ url_for('static', filename='uploads/imgClassifier/'+img) }}" />
+    {% else %}
+    <p>불러온 이미지가 없습니다.</p>
+    {% endif %}
+</div>
+</body>
+</html>
