@@ -8,7 +8,7 @@ import joblib
 
 from torchvision import transforms
 
-class Test01Service:
+class imgClassifierService:
     def getResult(self, inputImage):
         trans = transforms.Compose([transforms.Resize((32, 32)),
                                     transforms.ToTensor(),
@@ -48,32 +48,3 @@ class Test01Service:
         _, predicted = torch.max(outputs, 1)
         result = (classes[predicted])
         return result
-
-    # def getResult(self, inputImage):
-    #     inputImg = Image.open(inputImage)
-    #     resizeImg = inputImg.resize((32,32))
-    #     tf = transforms.ToTensor()
-    #     tensorImg = tf(resizeImg)
-    #     tensorImg = tensorImg.unsqueeze(0)
-    #
-    #     fileName = "test00.pkl"
-    #
-    #     net = Net()
-    #     net = joblib.load(fileName)
-    #     classes = [
-    #         'Agaricus',
-    #         'Amanita',
-    #         'Boletus',
-    #         'Cortinarius',
-    #         'Entoloma',
-    #         'Hygrocybe',
-    #         'Lactarius',
-    #         'Russula',
-    #         'Suillus'
-    #     ]
-    #
-    #     output = net(tensorImg)
-    #     _, predicted = torch.max(output, 1)
-    #     res = classes[predicted]
-    #
-    #     return res
