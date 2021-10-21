@@ -148,8 +148,18 @@ class Service:
                 title = item.find('title').text
                 # 내용
                 content = item.find('content').text
+                content = content.replace('재료손질', '재료준비')
+                ingredient = content.split('재료준비')
+                ingredients = ingredient[0].replace('재료 및 분량','')
+                ingredients = ingredients.replace('소스', ',')
+                ingredients = ingredients.replace('양념장', ',')
+                ingredients = ingredients.replace('곁들임', ',')
+                ingredients = ingredients.replace('튀김반죽', ',')
+                recipe = ingredient[1].replace('만드는 법', '')
+                recipe = recipe.split('다.')
+                del recipe[-1]
 
-                results.append([fileImageUrl, title, content])
+                results.append([fileImageUrl, title, ingredients, recipe])
             return results
 
         else:
