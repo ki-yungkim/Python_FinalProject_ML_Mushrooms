@@ -10,16 +10,23 @@ def imgForm():
     return render_template('imgForm.html')
 
 # 이미지 포함 검색
-@is_bp.route('/imgSearchForm', methods=['POST'])
-def imgSearchForm():
-    # 한 페이지 결과 수
-    numOfRows = request.form['numOfRows']
-    # 페이지 수
-    pageNo = request.form['pageNo']
+@is_bp.route('/imgSearchResult', methods=['POST'])
+def imgSearchResult():
+    # 페이지 인덱스
+    pageIndex = request.form['pageIndex']
+
     # 검색어
     searchWord = request.form['searchWord']
 
-    List = is_service.imgSearch(numOfRows, pageNo, searchWord)
-    return render_template('imgSearchForm.html', List=List)
+    List = is_service.imgSearch(pageIndex, searchWord)
+    return render_template('imgSearchResult.html', List=List, searchWord=searchWord)
+
+
+
+
+
+
+
+
 
 

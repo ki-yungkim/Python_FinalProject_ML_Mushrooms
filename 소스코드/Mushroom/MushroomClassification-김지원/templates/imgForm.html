@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#imgForm').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <div id="loading" style="margin-left: 0px;">
+        <img src="/static/images/loadingImage.gif">
+        <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+    </div>
     <title>이미지 검색</title>
 </head>
 <body>
 <h3>버섯도감 검색</h3>
-<form action="/img/imgSearchForm" method="POST">
+<form action="/img/imgSearchResult" id="imgForm" method="POST">
     <div>
-        <input type="hidden" name="pageNo" value="1">
-        <input type="hidden" name="numOfRows" value="10">
-        <input type="hidden" name="option" value="" placeholder="검색 구분"></br>
+        <input type="hidden" name="pageIndex" value="1">
         <input type="text" name="searchWord" placeholder="검색어">
         <input type="submit" value="검색"></br>
         <input type="button" value="메인화면" onclick="location.href='http://127.0.0.1:5000/'">
     </div>
 </form>
-
 </body>
 </html>
