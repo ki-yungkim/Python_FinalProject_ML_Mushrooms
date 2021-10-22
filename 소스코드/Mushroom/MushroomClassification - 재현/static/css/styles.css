@@ -11581,3 +11581,31 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     z-index:3;
     font-size: 1.3rem;
 }
+
+.detail {
+    border: 0px solid;
+    background-color:transparent;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    font-family:pretendard;
+
+}
+
+.paging {
+    border: 0px solid;
+    background-color:transparent;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family:pretendard;
+}
+
+.rtb-main {
+    border: 0px solid;
+    background-color:transparent;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family:pretendard;
+}
