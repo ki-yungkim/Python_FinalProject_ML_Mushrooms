@@ -8,7 +8,7 @@
         $(document).ready(function() {
 
         $('#loading').hide();
-        $('#searchRequest').submit(function(){
+        $('#searchEngRequest').submit(function(){
             $('#loading').show();
             return true;
             });
@@ -30,8 +30,8 @@
 
     </tr>
     <div style="text-align: center;">
-        <form action="/resource/searchRequest" id="searchRequest" method="POST">
-            <input type="hidden" name="st" value="1">
+        <form action="/resource/searchEngRequest" id="searchEngRequest" method="POST">
+            <input type="hidden" name="st" value="2">
             <input type="hidden" name="numOfRows" value="10">
             <input type="hidden" name="sw" value={{sw}} >
 
