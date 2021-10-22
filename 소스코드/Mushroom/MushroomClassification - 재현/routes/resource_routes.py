@@ -5,12 +5,20 @@ from MushroomClassification.models import resource_model
 re_bp = Blueprint('resource', __name__, url_prefix='/resource')
 re_service = resource_model.Service()
 
-
 # 입력 폼
 @re_bp.route('/resourceForm')
 def resourceForm():
     return render_template('resourceForm.html')
 
+# 입력 폼1
+@re_bp.route('/resourceForm1')
+def resourceForm1():
+    return render_template('resourceForm1.html')
+
+# 영문 입력 폼
+@re_bp.route('/resourceEngForm')
+def resourceEngForm():
+    return render_template('resourceEngForm.html')
 
 # 버섯도감 목록 검색
 @re_bp.route('/searchRequest', methods=['POST'])
@@ -23,10 +31,22 @@ def searchRequest():
     numOfRows = request.form['numOfRows']
     # 페이지 번호
     pageNo = request.form['pageNo']
-
     List = re_service.searchRequest(st, sw, numOfRows, pageNo)
-    return render_template('searchRequest.html', List=List)
+    return render_template('searchRequest1.html', List=List, sw=sw)
 
+# 버섯도감 목록 영문 검색
+@re_bp.route('/searchEngRequest', methods=['POST'])
+def searchEngRequest():
+    # 검색어 구분 (1 : 국명, 2 : 학명, 3 : 국명일치, 4 : 학명일치)
+    st = request.form['st']
+    # 검색어
+    sw = request.form['sw']
+    # 한 페이지 결과 수
+    numOfRows = request.form['numOfRows']
+    # 페이지 번호
+    pageNo = request.form['pageNo']
+    List = re_service.searchRequest(st, sw, numOfRows, pageNo)
+    return render_template('searchEngRequest.html', List=List, sw=sw)
 
 # 버섯도감 상세정보 조회
 @re_bp.route('/infoRequest', methods=['POST'])
@@ -35,7 +55,6 @@ def infoRequest():
     q1 = request.form['q1']
     List = re_service.infoRequest(q1)
     return render_template('infoRequest.html', List=List)
-
 
 # 식용/독버섯 이미지 테스트
 @re_bp.route('/testSurviveOrDeath')
@@ -66,12 +85,8 @@ def correctAnswer():
     name = request.form['name2']
     return render_template('/imgQuestion/correctAnswer.html', name=name)
 
-
 # 식용버섯 요리 리스트
 @re_bp.route('/mushroomDish')
 def mushroomDish():
     List = re_service.mushroomDish()
     return render_template('/dish/mushroomDish.html', List=List)
-
-
-

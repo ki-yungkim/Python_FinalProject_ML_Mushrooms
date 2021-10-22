@@ -2,29 +2,31 @@ import requests
 import random
 from bs4 import BeautifulSoup
 
-
 class Resource:
-    def __init__(self, imgUrl=None, fngsGnrlNm=None, fngsScnm=None, fngsPilbkNo=None, cont12=None):
-        # 이미지URL
-        self.imgUrl = imgUrl
-        # 국명
+    def __init__(self, familyKorNm=None,familyNm=None, fngsGnrlNm=None,
+                 fngsPilbkNo=None, genusKorNm=None, genusNm=None):
+        # 과 한글 이름
+        self.familyKorNm = familyKorNm
+        # 과 이름
+        self.familyNm = familyNm
+        # 이름
         self.fngsGnrlNm = fngsGnrlNm
-        # 학명
-        self.fngsScnm = fngsScnm
         # 도감번호
         self.fngsPilbkNo = fngsPilbkNo
-        # 식용여부
-        self.cont12 = cont12
+        # 속 한글 이름
+        self.genusKorNm = genusKorNm
+        # 속 이름
+        self.genusNm = genusNm
 
 
 class Service:
     def __init__(self):
         self.base_url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService'
-        self.api_key = '%2B7ENsmTJVHqwerwPZHnG8GPPLGXJ%2Bim42X9aFmr08YiAZPAUHql4rn9Yvrcpi3MAmOl2FONgiJbMyeOXDzrqEw%3D%3D'
+        self.api_key = '0T%2F98gSX5j9sCWzfQv5sF20Bt3QHxB0k5iKt4tmI2lofZZemulH7eVuvEyF%2FhonmX4t1s%2Fdk3B%2FpmJ%2FmjoK9pA%3D%3D'
 
     # 버섯도감 목록 검색
     def searchRequest(self, st, sw, numOfRows, pageNo):
-        url = self.base_url + '/fngsIlstrSearch?ServiceKey=' + self.api_key + '&st=' + st + '&sw=' + sw + '&numOfRows=' + numOfRows + '&pageNo=' + pageNo
+        url = self.base_url + '/fngsIlstrSearch?ServiceKey=' + self.api_key + '&st='+ st + '&sw=' + sw + '&numOfRows=' + numOfRows + '&pageNo=' + pageNo
         html = requests.get(url).text
         root = BeautifulSoup(html, 'lxml-xml')
         code = root.find('resultCode').text
@@ -106,12 +108,15 @@ class Service:
                 if cont21 == ' ':
                     cont21 = '불명'
 
-                results.append([familyKorNm, familyNm, genusKorNm, genusNm, fngsGnrlNm, fngsScnm, cont12, occrrSsnNm, occrrFomDscrt, cont21])
+                results.append([familyKorNm, familyNm, genusKorNm, genusNm, fngsGnrlNm, fngsScnm, cont12, occrrSsnNm,
+                                occrrFomDscrt, cont21])
+
             return results
 
         else:
             print('오류발생코드: ', code)
             print('오류 메시지: ', resultMsg)
+
 
     # 이미지퀴즈 오답페이지에 들어가는 버섯명언
     def advice(self):
@@ -132,7 +137,8 @@ class Service:
 
     # 버섯요리
     def mushroomDish(self):
-        url = 'http://apis.data.go.kr/1390804/NihhsRdaLifeInfo/selectLifeList?serviceKey=z87XiFqBjizhP7gRBLRttGzJYgKrESmLrKQNmb1aVULKjUTS9f6TBr2rppZBMSEXbq1ovC5bUdGj2N%2FYD6pKPg%3D%3D&iSubCode=A05&searchType=2&searchWord=버섯&pageNo=1&numOfRows=20'
+        url = 'http://apis.data.go.kr/1390804/NihhsRdaLifeInfo/selectLifeList?serviceKey=' \
+              + self.api_key + '&iSubCode=A05&searchType=2&searchWord=버섯&pageNo=1&numOfRows=20'
         html = requests.get(url).text
         root = BeautifulSoup(html, 'lxml-xml')
         code = root.find('resultCode').text
@@ -150,7 +156,7 @@ class Service:
                 content = item.find('content').text
                 content = content.replace('재료손질', '재료준비')
                 ingredient = content.split('재료준비')
-                ingredients = ingredient[0].replace('재료 및 분량','')
+                ingredients = ingredient[0].replace('재료 및 분량', '')
                 ingredients = ingredients.replace('소스', ',')
                 ingredients = ingredients.replace('양념장', ',')
                 ingredients = ingredients.replace('곁들임', ',')

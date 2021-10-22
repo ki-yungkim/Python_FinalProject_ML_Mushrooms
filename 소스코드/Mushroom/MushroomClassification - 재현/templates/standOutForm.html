@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#search').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <title>눈에 띄는 특징</title>
+</head>
+<body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>분석 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+
+<h3>버섯특징</h3>
+<form action="/columns/search" id="search" method="post">
+<table border="1">
+    <tr>
+        <td>갓 모양</td>
+        <th>
+            <select name="cap_shape">
+                <option value="0">bell</option>
+                <option value="1">conical</option>
+                <option value="2">flat</option>
+                <option value="3">knobbed</option>
+                <option value="4">sunken</option>
+                <option value="5">convex</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>갓 표면</td>
+        <th>
+            <select name="cap_surface">
+                <option value="6">fibrous</option>
+                <option value="7">grooves</option>
+                <option value="8">smooth</option>
+                <option value="9">scaly</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>갓 색깔</td>
+        <th>
+            <select name="cap_color">
+                <option value="10">buff</option>
+                <option value="11">cinnamon</option>
+                <option value="12">red</option>
+                <option value="13">gray</option>
+                <option value="14">brown</option>
+                <option value="15">pink</option>
+                <option value="16">green</option>
+                <option value="17">purple</option>
+                <option value="18">white</option>
+                <option value="19">yellow</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>멍</td>
+        <th>
+            <select name="bruises">
+                <option value=20>없음</option>
+                <option value=21>있음</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>냄새</td>
+        <th>
+            <select name="odor">
+                <option value=22>almond</option>
+                <option value=23>creosote</option>
+                <option value=24>foul</option>
+                <option value=25>anise</option>
+                <option value=26>musty</option>
+                <option value=27>none</option>
+                <option value=28>pungent</option>
+                <option value=29>spicy</option>
+                <option value=30>fishy</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>주름 색깔</td>
+        <th>
+            <select name="gill_color">
+                <option value=31>buff</option>
+                <option value=32>red</option>
+                <option value=33>gray</option>
+                <option value=34>chocolate</option>
+                <option value=35>black</option>
+                <option value=36>brown</option>
+                <option value=37>orange</option>
+                <option value=38>pink</option>
+                <option value=39>green</option>
+                <option value=40>purple</option>
+                <option value=41>white</option>
+                <option value=42>yellow</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <td>개체군</td>
+        <th>
+            <select name="population">abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y
+                <option value=43>abundant</option>
+                <option value=44>clustered</option>
+                <option value=45>numerous</option>
+                <option value=46>scattered</option>
+                <option value=47>several</option>
+                <option value=48>solitary</option>
+            </select>
+        </th>
+    </tr>
+    <tr><th colspan="2"><input type="submit" value="검색"></th></tr>
+</table>
+</form>
+</body>
+</html>
