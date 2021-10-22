@@ -1,8 +1,10 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 # import routes
 from routes import imgClassifier_routes
 
 app = Flask(__name__)
+CORS(app)
 
 # app.register_blueprint(routes.mushroom_bp)
 app.register_blueprint(imgClassifier_routes.mushroom_bp)
