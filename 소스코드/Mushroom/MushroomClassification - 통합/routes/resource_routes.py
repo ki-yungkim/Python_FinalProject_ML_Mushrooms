@@ -82,6 +82,13 @@ def correctAnswer():
 
 # 식용버섯 요리 리스트
 @re_bp.route('/mushroomDish')
-def mushroomDish():
-    List = re_service.mushroomDish()
+def mushroomDish(pageNo='1'):
+    List = re_service.mushroomDish(pageNo)
+    return render_template('/dish/mushroomDish.html', List=List)
+
+# 식용버섯 요리 리스트 페이징
+@re_bp.route('/mushroomDishNo', methods=['POST'])
+def mushroomDishNo():
+    pageNo = request.form['pageNo']
+    List = re_service.mushroomDish(pageNo)
     return render_template('/dish/mushroomDish.html', List=List)

@@ -136,9 +136,10 @@ class Service:
         return msg
 
     # 버섯요리
-    def mushroomDish(self):
+    def mushroomDish(self, pageNo):
         url = 'http://apis.data.go.kr/1390804/NihhsRdaLifeInfo/selectLifeList?serviceKey=' \
-              + self.api_key + '&iSubCode=A05&searchType=2&searchWord=버섯&pageNo=1&numOfRows=20'
+              + self.api_key + '&iSubCode=A05&searchType=2&searchWord=버섯' + '&pageNo=' + pageNo + '&numOfRows=10'
+        print(url)
         html = requests.get(url).text
         root = BeautifulSoup(html, 'lxml-xml')
         code = root.find('resultCode').text
