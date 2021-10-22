@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#imgSearchResult').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <div id="loading" style="margin-left: 0px;">
+        <img src="/static/images/loadingImage.gif">
+        <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+    </div>
     <title>이미지 검색 결과</title>
 </head>
 <body>
@@ -12,6 +28,18 @@
         <th>버섯 사진</th>
     </tr>
 
+    <div style="text-align: center;">
+        <form action="/img/imgSearchResult" id="imgSearchResult" method="POST">
+            <input type="hidden" name="searchWord" value={{searchWord}} >
+
+            <input type="submit" name="pageIndex" value="1">
+            <input type="submit" name="pageIndex" value="2">
+            <input type="submit" name="pageIndex" value="3">
+            <input type="submit" name="pageIndex" value="4">
+            <input type="submit" name="pageIndex" value="5">
+        </form>
+    </div>
+
     {% for data in List %}
     <tr>
         <td style="text-align: center;">{{data[0]}}</td>
@@ -20,9 +48,9 @@
     </tr>
     {% endfor %}
 </table>
-
+<!-- 되돌아가기 -->
 <div>
-    <button onclick="history.back()">되돌아가기</button>
+      <button onclick="history.back()">되돌아가기</button>
 </div>
 </body>
 </html>

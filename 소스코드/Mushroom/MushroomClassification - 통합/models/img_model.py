@@ -2,19 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 
 class ImageList:
-    def __init__(self, numOfRows=None, pageNo=None, option=None, searchWord=None, pageIndex=None, pageUnit=None):
-        # 한 페이지 결과 수
-        self.numOfRows = numOfRows
-        # 페이지 수
-        self.pageNo = pageNo
-        # 검색 구분
-        self.option = option
+    def __init__(self, searchWord=None, pageIndex=None):
         # 검색어
         self.searchWord = searchWord
         # 선택페이지
         self.pageIndex = pageIndex
-        # 페이지 사이즈
-        self.pageUnit = pageUnit
 
 
 class Service:
@@ -23,9 +15,9 @@ class Service:
         self.api_key = '0T%2F98gSX5j9sCWzfQv5sF20Bt3QHxB0k5iKt4tmI2lofZZemulH7eVuvEyF%2FhonmX4t1s%2Fdk3B%2FpmJ%2FmjoK9pA%3D%3D'
 
     # 이미지 포함 검색
-    def imgSearch(self, numOfRows, pageNo, searchWord):
-        cmd = 'selectMushroomImageList?'
-        url = self.base_url + cmd + '&serviceKey=' + self.api_key + '&searchWord=' + searchWord + '&numOfRows=' + numOfRows + '&pageNo=' + pageNo
+    def imgSearch(self, pageIndex, searchWord):
+        cmd = 'selectMushroomImageList'
+        url = self.base_url + cmd + '?pageIndex=' + pageIndex + '&serviceKey=' + self.api_key + '&searchWord=' + searchWord
         html = requests.get(url).text
         root = BeautifulSoup(html, 'lxml-xml')
         code = root.find('resultCode').get_text()
