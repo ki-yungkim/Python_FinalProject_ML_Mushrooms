@@ -11609,3 +11609,38 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     text-align: center;
     font-family:pretendard;
 }
+
+.th-center {
+    font-family:pretendard;
+    text-align: center;
+
+}
+
+.th-left {
+    font-family:pretendard;
+    text-align: left;
+}
+
+.th-right {
+    font-family:pretendard;
+    text-align: left;
+}
+
+.td-left {
+    font-family:pretendard;
+    text-align: left;
+}
+
+.td-center {
+    font-family:pretendard;
+    text-align: left;
+}
+
+.td-right {
+    font-family:pretendard;
+    text-align: right;
+}
+
+.table-tr {
+    margin-top:100px;
+}
