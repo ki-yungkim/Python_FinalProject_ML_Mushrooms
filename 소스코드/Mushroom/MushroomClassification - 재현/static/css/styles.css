@@ -11668,3 +11668,26 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     color: white;
     text-align: center;
 }
+
+.detailName {
+    font-family:pretendard;
+    text-align: center;
+    color:#FAD496;
+    font-weight:bold;
+    padding-top:10px;
+    font-size:20px;
+}
+.detailExplain {
+    font-family:pretendard;
+    text-align: left;
+    margin-left: 20px;
+    padding-left: 20px;
+    color:#ffffff;
+    padding-top:10px;
+    font-size:18px;
+}
+
+.return-div {
+    margin-top:20px;
+    text-align: center;
+}
