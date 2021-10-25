@@ -7,7 +7,7 @@
 <body>
 <h3>상세검색</h3>
 
-<table border="1">
+<table class="mushroom-table">
     {% for data in List %}
     <tr><th>과국명</th><td>{{data[0]}}</td></tr>
     <tr><th>과명</th><td>{{data[1]}}</td></tr>
@@ -24,7 +24,7 @@
 
 <!-- 되돌아가기 -->
 <div>
-      <button onclick="history.back()">되돌아가기</button>
+    <button onclick="history.back()">되돌아가기</button>
 </div>
 </body>
 </html>
