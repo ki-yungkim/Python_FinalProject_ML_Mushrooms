@@ -11600,7 +11600,15 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     font-size: 1rem;
     text-align: center;
     font-family:pretendard;
+}
 
+.detail:hover {
+    border: 0px solid;
+    background-color:transparent;
+    color:#FAD496;
+    font-size: 1rem;
+    text-align: center;
+    font-family:pretendard;
 }
 
 .paging {
@@ -11705,6 +11713,4 @@ input[id="menuicon"]:checked + ul + div {right:0;}
 
 .viewImg:hover {
     overflow: hidden;
-    transform: scale(1.2);
-
 }

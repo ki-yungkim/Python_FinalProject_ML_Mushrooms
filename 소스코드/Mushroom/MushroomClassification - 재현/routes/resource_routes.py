@@ -57,8 +57,8 @@ def infoRequest():
 def testSurviveOrDeath():
     x = random.randrange(1, 6)
     url = "/imgQuestion/question" + str(x) + ".html"
-    # return render_template(url)
-    return render_template('/imgQuestion/question1.html')
+    return render_template(url)
+    # return render_template('/imgQuestion/question5.html')
 
 
 # 독버섯 정보
