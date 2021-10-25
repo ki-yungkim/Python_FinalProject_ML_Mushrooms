@@ -237,7 +237,7 @@ sup {
 }
 
 a {
-  color: #2a5555;
+  color: #ffffff;
   text-decoration: underline;
 }
 a:hover {
@@ -11402,14 +11402,13 @@ video.bg-video {
 
 @media (min-width: 992px) {
   .masthead {
-    margin-top: 350px;
+    top: 350px;
     height: 30%;
     width: 75vw;
     min-height: 0;
     padding-bottom: 0;
-    
-    
   }
+
   .masthead:before {
     transform: skewX(-9deg);
     transform-origin: top right;
@@ -11689,5 +11688,10 @@ input[id="menuicon"]:checked + ul + div {right:0;}
 
 .return-div {
     margin-top:20px;
+    text-align: center;
+}
+
+.poison-table {
+    margin:auto;
     text-align: center;
 }
