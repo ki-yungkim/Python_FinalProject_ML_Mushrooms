@@ -11444,7 +11444,7 @@ video.bg-video {
   align-items: center;
   justify-content: center;
 }
-.masthead2 {
+.masthead2::before {
   content: "";
   position: absolute;
   overflow-y: visible;
