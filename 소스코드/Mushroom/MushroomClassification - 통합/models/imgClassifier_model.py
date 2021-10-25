@@ -7,7 +7,8 @@ from torch.utils.data import DataLoader
 import joblib
 
 from torchvision import transforms
-
+import requests
+from bs4 import BeautifulSoup
 class imgClassifierService:
     def getResult(self, inputImage):
         trans = transforms.Compose([transforms.Resize((32, 32)),
@@ -22,17 +23,6 @@ class imgClassifierService:
         dataiter = iter(testImageloader)
         images, labels = dataiter.next()
 
-        # Single ImageFile convert to TensorObject
-        # inputImg = Image.open(inputImage)
-        # resizeImg = inputImg.resize((32,32))
-        # tf = transforms.ToTensor()
-        # tensorImg = tf(resizeImg)
-        # tensorImg = tensorImg.unsqueeze(0)
-        # print('tensor1:',tensorImg.shape)
-        # normalize = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-        # tensorImg2 = normalize(tensorImg)
-        # print('tensor2:',tensorImg2.shape)
-
         classes = ['Agaricus',
                    'Amanita',
                    'Boletus',
@@ -44,7 +34,39 @@ class imgClassifierService:
                    'Suillus']
         net = joblib.load("mushroom_test.pkl")
         outputs = net(images)
-        # outputs = net(tensorImg2)
         _, predicted = torch.max(outputs, 1)
         result = (classes[predicted])
         return result
+
+    def searchMushInfo(self, sw):
+        sw = sw
+        api_Key = '0T%2F98gSX5j9sCWzfQv5sF20Bt3QHxB0k5iKt4tmI2lofZZemulH7eVuvEyF%2FhonmX4t1s%2Fdk3B%2FpmJ%2FmjoK9pA%3D%3D'
+        url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService/fngsIlstrSearch?ServiceKey=' + api_Key
+        url += '&st=2'
+        url += '&sw=' + sw
+        url += '&numOfRows=5&PageNo=1'
+
+        html = requests.get(url).text
+        root = BeautifulSoup(html, 'lxml-xml')
+        code = root.find('resultCode').text
+        resultMsg = root.find("resultMsg").text
+        results = []
+
+        if code == "00":
+            print("API Loading Complete!!")
+            items = root.select("item")
+            for item in items:
+                imgUrl = item.find("imgUrl").text
+                genusKorNm = item.find("genusKorNm").text
+                genusNm = item.find("genusNm").text
+                fngsGnrlNm = item.find("fngsGnrlNm").text
+
+                results.append([imgUrl, genusKorNm, genusNm, fngsGnrlNm])
+            return results
+
+        else:
+            print("API Loading Failed...")
+            print("API Load ErrorCode: ", code)
+            print("API Load Error Message: ", resultMsg)
+
+            return None

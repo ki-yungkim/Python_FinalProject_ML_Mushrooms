@@ -12,7 +12,9 @@
     <tr><th>분류군국명</th><td>{{data[0]}}</td></tr>
     <tr><th>분류군명</th><td>{{data[1]}}</td></tr>
     <tr><th>분류군ID</th><td>{{data[2]}}</td></tr>
-    <tr><th>상위분류군ID</th><td>{{data[3]}}</td></tr>
+    <form name="detail" action="/system/systemInfoRequest" method="POST">
+    <tr><th>상위분류군ID</th><td><input type="submit" name="q1" value="{{data[3]}}" style="border: 0px;"></td></tr>
+    </form>
     <tr><th>저작권설명</th><td>{{data[4]}}</td></tr>
     {% endfor %}
 </table>
