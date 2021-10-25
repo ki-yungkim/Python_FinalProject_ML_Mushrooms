@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분류군정보 상세조회</title>
+</head>
+<body>
+<h3>분류군정보 상세조회</h3>
+
+<table border="1">
+    {% for data in List %}
+    <tr><th>분류군국명</th><td>{{data[0]}}</td></tr>
+    <tr><th>분류군명</th><td>{{data[1]}}</td></tr>
+    <tr><th>분류군ID</th><td>{{data[2]}}</td></tr>
+    <tr><th>상위분류군ID</th><td>{{data[3]}}</td></tr>
+    <tr><th>저작권설명</th><td>{{data[4]}}</td></tr>
+    {% endfor %}
+</table>
+
+<!-- 되돌아가기 -->
+<div>
+      <button onclick="history.back()">되돌아가기</button>
+</div>
+</body>
+</html>
