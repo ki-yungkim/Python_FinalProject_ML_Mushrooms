@@ -68,7 +68,12 @@ def testSurviveOrDeath():
 # 독버섯 정보
 @re_bp.route('/poisonousMushroom')
 def poisonousMushroom():
-    return render_template('/imgQuestion/poisonousMushroom.html')
+    return render_template('/imgQuestion/poisonousMushroom1.html')
+
+# 독버섯 정보2
+@re_bp.route('/poisonousMushroom2')
+def poisonousMushroom2():
+    return render_template('/imgQuestion/poisonousMushroom2.html')
 
 
 # 식용/독버섯 이미지 테스트: 오답페이지
