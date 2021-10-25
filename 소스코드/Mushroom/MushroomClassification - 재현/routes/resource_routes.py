@@ -54,7 +54,7 @@ def infoRequest():
     # 도감번호
     q1 = request.form['q1']
     List = re_service.infoRequest(q1)
-    return render_template('infoRequest.html', List=List)
+    return render_template('infoRequest1.html', List=List)
 
 # 식용/독버섯 이미지 테스트
 @re_bp.route('/testSurviveOrDeath')
