@@ -11695,3 +11695,16 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     margin:auto;
     text-align: center;
 }
+
+.viewImg {
+    margin-right:10px;
+    margin-bottom:10px;
+    transition: all 0.2s linear;
+    overflow: hidden;
+}
+
+.viewImg:hover {
+    overflow: hidden;
+    transform: scale(1.2);
+
+}
