@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#searchRequest').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <div id="loading" style="margin-left: 0px;">
+        <img src="/static/images/loadingImage.gif">
+        <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+    </div>
+    <title>버섯도감 목록 검색</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>이미지</th>
+        <th>국명</th>
+        <th>학명</th>
+        <th>독성</th>
+
+    </tr>
+    <div style="text-align: center;">
+        <form action="/resource/searchRequest" id="searchRequest" method="POST">
+            <input type="hidden" name="st" value="1">
+            <input type="hidden" name="numOfRows" value="10">
+            <input type="hidden" name="sw" value={{sw}} >
+
+            <input type="submit" name="pageNo" value="1">
+            <input type="submit" name="pageNo" value="2">
+            <input type="submit" name="pageNo" value="3">
+            <input type="submit" name="pageNo" value="4">
+            <input type="submit" name="pageNo" value="5">
+        </form>
+    </div>
+
+    {% for data in List %}
+    <tr>
+        <form name="detail" action="/resource/infoRequest" method="POST">
+            <td><img src="{{data[0]}}" width="200" height="100"></td>
+            <td style="text-align: center;"><input type="submit" value="{{data[1]}}" style="border: 0px;"></td>
+            <td>{{data[2]}}</td>
+
+            {% if '불명' in data[4] %}
+            <td><img src="/static/images/물음표.png" width="50" height="50"></td>
+            {% elif '부' in data[4] %}
+            <td><img src="/static/images/poison.png" width="50" height="50"></td>
+            {% elif '식용' in data[4] %}
+            <td><img src="/static/images/eat.jpeg" width="50" height="50"></td>
+            {% else %}
+            <td><img src="/static/images/poison.png" width="50" height="50"></td>
+            {% endif %}
+            <input type="hidden" name="q1" value="{{data[3]}}">
+        </form>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<!-- 되돌아가기 -->
+<div>
+      <button onclick="history.back()">되돌아가기</button>
+</div>
+</body>
+</html>

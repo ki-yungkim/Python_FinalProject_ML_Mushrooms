@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#searchRequest').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+<h3>버섯도감 목록 검색</h3>
+<form action="/resource/searchRequest" id="searchRequest" method="POST">
+    <div>
+        <input type="hidden" name="st" value="1">
+        <input type="hidden" name="numOfRows" value="10">
+        <input type="hidden" name="pageNo" value="1">
+        <input type="text" name="sw" placeholder="검색어">
+        <input type="submit" value="검색">
+    </div>
+</form>
+
+<!-- 되돌아가기 -->
+<div>
+      <button onclick="history.back()">되돌아가기</button>
+</div>
+</form>
+</body>
+</html>
