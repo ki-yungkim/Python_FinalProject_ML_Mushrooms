@@ -8,7 +8,7 @@ columns = stand_out_model.Columns
 # 입력 폼
 @co_bp.route('/standOutForm')
 def Form():
-    print('form')
+
     return render_template('standOutForm.html')
 
 # 버섯도감 목록 검색
