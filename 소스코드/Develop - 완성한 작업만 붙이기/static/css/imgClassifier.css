@@ -31,8 +31,10 @@ th, td {
     width: 100%;
 }
 
-.mushroomSpacRight > table td {
-    height: 150px;
+#displaySpecButton:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 .modal {
@@ -55,6 +57,11 @@ th, td {
 
 .modalWindow {
 
+}
+.modalPhotoView:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: normal;
 }
 
 #modalPhoto {
