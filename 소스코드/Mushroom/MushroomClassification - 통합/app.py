@@ -40,7 +40,7 @@ class Net(nn.Module):
 
 @app.route('/')
 def root():
-    return render_template('index.html')
+    return render_template('resourceForm.html')
 
 if __name__ == '__main__':
     app.run()
