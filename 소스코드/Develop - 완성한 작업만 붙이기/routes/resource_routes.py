@@ -5,15 +5,18 @@ from MushroomClassification.models import resource_model
 re_bp = Blueprint('resource', __name__, url_prefix='/resource')
 re_service = resource_model.Service()
 
+
 # 입력 폼
 @re_bp.route('/resourceForm')
 def resourceForm():
     return render_template('resourceForm.html')
 
+
 # 영문 입력 폼
 @re_bp.route('/resourceEngForm')
 def resourceEngForm():
     return render_template('resourceEngForm.html')
+
 
 # 버섯도감 목록 검색
 @re_bp.route('/searchRequest', methods=['POST'])
@@ -29,6 +32,7 @@ def searchRequest():
     List = re_service.searchRequest(st, sw, numOfRows, pageNo)
     return render_template('searchRequest.html', List=List, sw=sw)
 
+
 # 버섯도감 목록 영문 검색
 @re_bp.route('/searchEngRequest', methods=['POST'])
 def searchEngRequest():
@@ -43,6 +47,7 @@ def searchEngRequest():
     List = re_service.searchRequest(st, sw, numOfRows, pageNo)
     return render_template('searchEngRequest.html', List=List, sw=sw)
 
+
 # 버섯도감 상세정보 조회
 @re_bp.route('/infoRequest', methods=['POST'])
 def infoRequest():
@@ -50,6 +55,7 @@ def infoRequest():
     q1 = request.form['q1']
     List = re_service.infoRequest(q1)
     return render_template('infoRequest.html', List=List)
+
 
 # 식용/독버섯 이미지 테스트
 @re_bp.route('/testSurviveOrDeath')
@@ -60,7 +66,7 @@ def testSurviveOrDeath():
     # return render_template('/imgQuestion/question4.html')
 
 
-# 독버섯 정보
+# 독버섯 정보1
 @re_bp.route('/poisonousMushroom')
 def poisonousMushroom():
     return render_template('/imgQuestion/poisonousMushroom1.html')
@@ -70,6 +76,12 @@ def poisonousMushroom():
 @re_bp.route('/poisonousMushroom2')
 def poisonousMushroom2():
     return render_template('/imgQuestion/poisonousMushroom2.html')
+
+
+# 독버섯 정보3
+@re_bp.route('/poisonousMushroom3')
+def poisonousMushroom3():
+    return render_template('/imgQuestion/poisonousMushroom3.html')
 
 
 # 식용/독버섯 이미지 테스트: 오답페이지
@@ -86,11 +98,13 @@ def correctAnswer():
     name = request.form['name2']
     return render_template('/imgQuestion/correctAnswer.html', name=name)
 
+
 # 식용버섯 요리 리스트
 @re_bp.route('/mushroomDish')
 def mushroomDish(pageNo='1'):
     List = re_service.mushroomDish(pageNo)
     return render_template('/dish/mushroomDish.html', List=List)
+
 
 # 식용버섯 요리 리스트 페이징
 @re_bp.route('/mushroomDishNo', methods=['POST'])
