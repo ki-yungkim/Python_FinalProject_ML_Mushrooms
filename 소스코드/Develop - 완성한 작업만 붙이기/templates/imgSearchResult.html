@@ -45,43 +45,19 @@
 <body>
 
     <!-- loading page -->
-    <div class="loading" id="loading">
-        <img src="/static/images/loadingImage.gif">
-        <p class="masthead-content text-white">API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
-    </div>
+        <div class="loading" id="loading">
+            <div class="loadingImg"><img src="/static/images/loadingImage.gif" style="width:100px;height:100px;"></div>
+            <h4><span style="color:#FAD496;font-weight:bold">API </span>정보를 로딩 중 입니다...<br><br>
+            잠시 기다려주세요.</h4>
+        </div>
     <!-- side menu-->
-    <input type="checkbox" id="menuicon">
-        <ul>
-            <li>
-                <label data-toggle="tooltip" data-placement="left" title="Menu" for="menuicon">
-                    <span></span><span></span><span></span>
-                </label>
-            </li>
-        </ul>
+    {% include './sideMenu/sidebar.html' %}
 
-       <div class="sidebar">
-        <!-- 공공데이터 API -->
-            <li class="sidebar-text2"><span style="color:#FAD496">검색기능</span></li>
-            <li class="sidebar-text"><a href="/resource/resourceForm">한글 이름으로 검색</a></li>
-            <li class="sidebar-text"><a href="/resource/resourceEngForm">영문 이름으로 검색</a></li>
-            <li class="sidebar-text"><a href="/img/imgForm">이름으로 사진 검색</a></li>
-            <li class="sidebar-text"><a href="/system/searchFormKor">한글분류명 검색</a></li>
-            <li class="sidebar-text"><a href="/system/searchFormEng">영문분류명 검색</a></li>
-        <!-- Machine Learning -->
-            <li class="sidebar-text2"><span style="color:#FAD496">머신러닝</span></li>
-            <li class="sidebar-text"><a href="/feature/featureForm">특징으로 독성 여부 분류</a></li>
-            <li class="sidebar-text"><a href="/mushroom/imgClassifier">이미지로 판별</a></li>
-        <!-- JS script -->
-            <li class="sidebar-text2"><span style="color:#FAD496">추가정보</span></li>
-            <li class="sidebar-text"><a href="/resource/mushroomDish">버섯요리 레시피</a></li>
-            <li class="sidebar-text"><a href="/resource/testSurviveOrDeath">독버섯 퀴즈!</a></li>
-            <li class="sidebar-text"><a href="/resource//poisonousMushroom">독버섯 정보</a></li>
-       </div>
 
     <!-- Background Video-->
     <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="{{url_for('static', filename='mp4/bg.mp4')}}" type="video/mp4" /></video>
     <!-- Masthead2 본문-->
-    <div class="masthead2" style="overflow : scroll; height=150%;">
+    <div class="masthead2" style="overflow : scroll; height:200%;">
 
         <div class="masthead-content text-white">
             <div class="container-fluid px-4 px-lg-0">
