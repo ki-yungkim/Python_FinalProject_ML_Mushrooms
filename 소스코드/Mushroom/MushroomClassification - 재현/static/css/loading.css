@@ -8,7 +8,7 @@
   	display: block;
   	opacity: 0.6;
   	background: #e4e4e4;
-  	z-index: 99;
+  	z-index: 18 !important;
   	text-align: center;
   }
 
@@ -24,5 +24,7 @@
     	position: absolute;
     	top: 57%;
     	left: 43%;
-    	z-index: 101;
+    	color: #FAD496 !important;
+    	font-weight: bold;
+    	z-index: 19 !important;
     }
