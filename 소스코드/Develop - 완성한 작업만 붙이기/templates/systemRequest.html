@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분류군정보 목록 검색</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>분류군 국명</th>
+        <th>분류군</th>
+        <th>분류군ID</th>
+    </tr>
+    {% for data in List %}
+    <tr>
+        <form name="detail" action="/system/systemInfoRequest" method="POST">
+        <td>{{data[0]}}</td>
+        <td>{{data[1]}}</td>
+        <td style="text-align: center;"><input type="submit" value="{{data[2]}}" style="border: 0px;"></td>
+        <input type="hidden" name="q1" value="{{data[2]}}">
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- 되돌아가기 -->
+<div>
+      <button onclick="history.back()">되돌아가기</button>
+</div>
+</body>
+</html>

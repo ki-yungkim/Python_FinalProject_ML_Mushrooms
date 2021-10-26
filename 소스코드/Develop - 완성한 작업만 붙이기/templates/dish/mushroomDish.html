@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#mushroomDish').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <title>mushroomDish</title>
+</head>
+<body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+<h3>버섯요리 레시피</h3>
+    <div style="text-align: center;">
+        <form action="/resource/mushroomDishNo" id="mushroomDish" method="POST">
+            <input type="submit" name="pageNo" value="1">
+            <input type="submit" name="pageNo" value="2">
+            <input type="submit" name="pageNo" value="3">
+            <input type="submit" name="pageNo" value="4">
+            <input type="submit" name="pageNo" value="5">
+        </form>
+    </div>
+<table border="1">
+    {% for data in List %}
+    <tr>
+        <td rowspan="3"><img src="{{data[0]}}" width="300" height="200"></td>
+        <td>제목</td>
+        <td>{{data[1]}}</td>
+    </tr>
+    <tr>
+        <td>재료</td>
+        <td>{{data[2]}}</td>
+    </tr>
+    <tr>
+        <td>레시피</td>
+
+        <td>
+            {% for d in data[3]%}
+            {{d}}다.
+            <br />
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- 되돌아가기 -->
+<div>
+      <button onclick="history.back()">되돌아가기</button>
+</div>
+</body>
+</html>
