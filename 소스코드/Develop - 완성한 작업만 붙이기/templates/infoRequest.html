@@ -43,10 +43,11 @@
 
 </head>
 <body>
-<!-- loading page -->
+        <!-- loading page -->
         <div class="loading" id="loading">
-            <img src="/static/images/loadingImage.gif">
-            <p class="masthead-content text-white">API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+            <div class="loadingImg"><img src="/static/images/loadingImage.gif" style="width:100px;height:100px;"></div>
+            <h4><span style="color:#FAD496;font-weight:bold">API </span>정보를 로딩 중 입니다...<br><br>
+            잠시 기다려주세요.</h4>
         </div>
         <!-- side menu-->
         {% include './sideMenu/sidebar.html' %}
