@@ -11717,4 +11717,7 @@ input[id="menuicon"]:checked + ul + div {right:0;}
     overflow: hidden;
 }
 
+::-webkit-scrollbar { display: none; }
+
+
 }
