@@ -24,6 +24,7 @@
         <!-- Loading -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type='text/javascript'>
            $(document).ready(function() {
 
@@ -38,6 +39,40 @@
             $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
             });
 
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+              ['Task', '버섯 분석'],
+              ['식용',     416],
+              ['약용',      75],
+              ['독버섯',  237],
+              ['불명', 1334],
+            ]);
+
+            var options = {
+                title: '',
+                backgroundColor: { fill:'transparent' },
+                pieSliceText: 'label',
+                pieSliceTextStyle: {
+                    color: 'black',
+                    fontName: 'system-ui',
+                    fontSize: '12px'
+                },
+                tooltip: {
+                    textStyle: {color: '#000000'},
+                    showColorCode: true
+                },
+                colors:['#83E9C0','#137D90','#DB5D5D','#FFF2E8'],
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+            }
         </script>
     </head>
     <body>
@@ -45,7 +80,7 @@
         <!-- loading page -->
         <div class="loading" id="loading">
             <img src="/static/images/loadingImage.gif">
-            <p class="masthead-content text-white">API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+            <p class="masthead-content text-white">API 정보를 로딩 중 입니다..<br> 잠시 기다려주세요.</p>
         </div>
         <!-- side menu-->
         <input type="checkbox" id="menuicon">
@@ -85,7 +120,7 @@
 
                     <h2 class="fst-italic lh-1 mb-4">Project_Mushroom!</h2>
                     <h4 class="fst-normal lh-1 mb-4">국내 <span style="color:#FAD496">독버섯</span>분포 현황</h4>
-                    <img src="/static/images/graph.png" width="225" height="225"><br>
+                    <div id="piechart" style="width: 900px; height: 350px;"></div>
                     우리나라에는 2,048종(국가표준버섯목록)의 버섯이 자생하는 것으로 보고되어 있으며, <br>
                     그 중 식용 가능한 버섯은 약 413여종(약 20.1%)에 불과하다. <br>
                     확인된 독버섯은 234종(약11.4%) <br>
