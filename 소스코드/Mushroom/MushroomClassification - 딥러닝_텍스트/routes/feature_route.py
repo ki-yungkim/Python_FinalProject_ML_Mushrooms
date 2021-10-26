@@ -1,5 +1,5 @@
 from flask import request, render_template, Blueprint
-from MushroomClassification.models import feature_model
+from MushroomClassification_개인.models import feature_model
 
 fe_bp = Blueprint('feature', __name__, url_prefix='/feature')
 fe_service = feature_model.FeatureService()
@@ -25,8 +25,9 @@ def search():
     f = [bruises, odor, gill_size, gill_color, stalk_surface_above_ring,\
                                 stalk_surface_below_ring, ring_type, spore_print_color, population]
     res = fe_service.getResult(f)
-    if res == 1:
+    '''if res == 1:
         res = '독버섯'
     else:
-        res = '독버섯 아님'
+        res = '독버섯 아님'''
+    res *= 100
     return str(res)

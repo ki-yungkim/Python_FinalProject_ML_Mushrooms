@@ -36,7 +36,7 @@
 </div>
 
 <h3>버섯특징</h3>
-<form action="/columns/search" id="search" method="post" target="iframe1">
+<form action="/columns/search" id="search" method="post">
 <table id="help" border="1">
     <tr>
         <td>갓 모양<span data-html="true" data-toggle="tooltip" data-placement="right" title="<img src='../static/images/cap_shapes.jfif'>"><i class="far fa-question-circle"></i></span></td>
@@ -92,15 +92,15 @@
         <td>냄새<span data-html="true" data-toggle="tooltip" data-placement="right" title="<img src='../static/images/냄새'>"><i class="far fa-question-circle"></i></td>
         <th>
             <select name="odor">
-                <option value=22>almond</option>
-                <option value=23>creosote</option>
-                <option value=24>foul</option>
-                <option value=25>anise</option>
-                <option value=26>musty</option>
-                <option value=27>none</option>
-                <option value=28>pungent</option>
-                <option value=29>spicy</option>
-                <option value=30>fishy</option>
+                <option value=22>almond 아몬드향</option>
+                <option value=23>creosote 훈연향</option>
+                <option value=24>foul 악취</option>
+                <option value=25>anise 팔각향</option>
+                <option value=26>musty 곰팡내</option>
+                <option value=27>none 없음</option>
+                <option value=28>pungent 톡 쏘는 냄새</option>
+                <option value=29>spicy 매운내</option>
+                <option value=30>fishy 비린내 </option>
             </select>
         </th>
     </tr>
@@ -126,7 +126,7 @@
     <tr>
         <td>개체군<span data-html="true" data-toggle="tooltip" data-placement="right" title="<img src='../static/images/개체군'>"><i class="far fa-question-circle"></i></td>
         <th>
-            <select name="population">abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y
+            <select name="population">
                 <option value=43>abundant</option>
                 <option value=44>clustered</option>
                 <option value=45>numerous</option>
@@ -139,6 +139,56 @@
     <tr><th colspan="2"><input type="submit" value="검색"></th></tr>
 </table>
 </form>
-<iframe id="iframe1" name="iframe1" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 120px;"></iframe>
+<h3>선택한 특징</h3>
+<table border="1">
+    <tr>
+        <td>분석결과</td>
+        <th>
+            {{res}}
+        </th>
+    </tr>
+    <tr>
+        <td>갓 모양</td>
+        <th>
+            {{cap_shape}}
+        </th>
+    </tr>
+    <tr>
+        <td>갓 표면</td>
+        <th>
+            {{cap_surface}}
+        </th>
+    </tr>
+    <tr>
+        <td>갓 색깔</td>
+        <th>
+            {{cap_color}}
+        </th>
+    </tr>
+    <tr>
+        <td>멍</td>
+        <th>
+            {{bruises}}
+        </th>
+    </tr>
+    <tr>
+        <td>냄새</td>
+        <th>
+            {{odor}}
+        </th>
+    </tr>
+    <tr>
+        <td>주름 색깔</td>
+        <th>
+            {{gill_color}}
+        </th>
+    </tr>
+    <tr>
+        <td>개체군</td>
+        <th>
+            {{population}}
+        </th>
+    </tr>
+</table>
 </body>
 </html>

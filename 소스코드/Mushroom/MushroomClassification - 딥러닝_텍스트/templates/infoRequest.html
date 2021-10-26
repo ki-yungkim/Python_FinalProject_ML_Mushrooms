@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>버섯도감 목록 검색</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>자실체크기설명</th>
+        <th>발생형태설명</th>
+        <th>발생계절명</th>
+        <th>식독여부</th>
+        <th>발생장소</th>
+    </tr>
+    {% for data in List %}
+    <tr>
+        <td>{{data[0]}}</td>
+        <td>{{data[1]}}</td>
+        <td>{{data[2]}}</td>
+        <td>{{data[3]}}</td>
+        <td>{{data[4]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
