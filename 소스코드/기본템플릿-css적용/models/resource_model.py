@@ -22,7 +22,7 @@ class Resource:
 class Service:
     def __init__(self):
         self.base_url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService'
-        self.api_key = '0T%2F98gSX5j9sCWzfQv5sF20Bt3QHxB0k5iKt4tmI2lofZZemulH7eVuvEyF%2FhonmX4t1s%2Fdk3B%2FpmJ%2FmjoK9pA%3D%3D'
+        self.api_key = ''
 
     # 버섯도감 목록 검색
     def searchRequest(self, st, sw, numOfRows, pageNo):
