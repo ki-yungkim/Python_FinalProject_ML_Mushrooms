@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#imageSearch').submit(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <title>버섯 사진 판별</title>
+
+</head>
+<body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+
+<h5>판별하려는 버섯의 이미지를 업로드해주세요.</h5>
+<form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data">
+    <label for="uploadfile">업로드 파일</label>
+    <input type="file" id="uploadfile" name="uploadfile"/>
+    <br/>
+    <input type="submit" value="판별하기"/>
+</form>
+</body>
+</html>
