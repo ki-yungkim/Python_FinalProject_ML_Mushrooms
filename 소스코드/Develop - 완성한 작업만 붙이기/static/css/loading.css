@@ -6,23 +6,41 @@
   	left: 0;
   	position: fixed;
   	display: block;
-  	opacity: 0.6;
-  	background: #e4e4e4;
+  	opacity: 0.8;
+  	background: #000000;
   	z-index: 99;
   	text-align: center;
   }
 
-
-
   #loading > img {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin:auto;
+    z-index: 100;
   }
    #loading > p {
-    	position: absolute;
-    	top: 57%;
-    	left: 43%;
-    	z-index: 101;
+    position: absolute;
+    top: 57%;
+    left: 43%;
+    z-index: 101;
     }
+
+.loadingImg {
+    position: absolute;
+    top: 40%;
+    left:48%;
+    margin:auto;
+    z-index: 100;
+
+}
+.loading > h4 {
+    position: absolute;
+    color: #ffffff;
+    top: 50%;
+    left: 43%;
+    z-index: 101;
+    margin-top:10px;
+    padding-bottom:30px;
+    }
+
