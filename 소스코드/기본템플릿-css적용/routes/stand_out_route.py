@@ -15,7 +15,7 @@ def Form():
     odor = None
     gill_color = None
     population = None
-    return render_template('standOutForm.html', cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
+    return render_template('featureForm.html', cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
 
 # 버섯도감 목록 검색
 @co_bp.route('/search', methods=['POST'])
@@ -50,4 +50,4 @@ def search():
     population = populationList[population-43]
 
 
-    return render_template('standOutForm.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
+    return render_template('featureForm.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
