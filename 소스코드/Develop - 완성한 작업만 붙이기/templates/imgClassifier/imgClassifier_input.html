@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
-
+        <link href="{{url_for('static', filename='css/imgClassifier.css')}}" rel="stylesheet" />
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -37,9 +37,11 @@
     <title>버섯 사진 판별</title>
 </head>
 <body>
-<div id="loading" style="margin-left: 0px;">
-    <img src="/static/images/loadingImage.gif">
-    <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
+<!-- loading page -->
+<div class="loading" id="loading">
+    <div class="loadingImg"><img src="/static/images/loadingImage.gif" style="width:100px;height:100px;"></div>
+    <h4><span style="color:#FAD496;font-weight:bold">API </span>정보를 로딩 중 입니다...<br><br>
+        잠시 기다려주세요.</h4>
 </div>
 <!-- sidebar -->
 {% include './sideMenu/sidebar.html' %}
@@ -49,13 +51,12 @@
     <div class="masthead-content text-white">
         <div class="container-fluid px-4 px-lg-0">
             <p class="mb-5">궁금하신 버섯 사진을 검색해보세요.</p>
-            <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data">
-                <div class="row input-group-newsletter">
-                <label for="uploadfile">업로드 파일</label>
+            <!-- <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data"> -->
+            <form name="imageSearch" id="imageSearch"  enctype="multipart/form-data">
+                <label class="uploadfileBtn" for="uploadfile" accept=".jpg,.jpeg,.png">업로드 파일</label>
                 <input type="file" id="uploadfile" name="uploadfile"/>
-                <br/>
-                    <div class="col-4"><input class="searchButton" type="submit" value="판별하기"/></div>
-                </div>
+                <p id="inputFileName">No File</p>
+                <input id="searchBtn" class="searchBtn" type="submit" value="판별하기" disabled/>
             </form>
         </div>
     </div>
@@ -65,6 +66,63 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
+<script type="text/javascript">
+// 업로드할 파일 이름 처리하기
+const $uploadFile = document.querySelector("#uploadfile");
+const $inputFileName = document.querySelector("#inputFileName");
+const $formUploadButton = document.querySelector("#searchBtn");
+
+const fileTypes = [
+    "image/jpeg",
+    "image/png"
+]
+
+const validFileType = (file) => {
+    return fileTypes.includes(file.type);
+}
+const returnFileSize = (number) => {
+    if(number < 1024) {
+        return number + 'bytes';
+    } else if(number >= 1024 && number < 1048576) {
+        return (number/1024).toFixed(1) + 'KB';
+    } else if(number >= 1048576) {
+        return (number/1048576).toFixed(1) + 'MB';
+    }
+}
+let uploadReady = new Boolean(false);
+
+const updateImageFile = () => {
+    const currentFiles = $uploadFile.files;
+    if(currentFiles.length === 0) {
+        $inputFileName.textContent = "파일이 업로드 되지 않았습니다.";
+    }
+
+    for(const file of currentFiles) {
+        if(validFileType(file)) {
+            uploadReady = true;
+            $inputFileName.textContent = `${file.name}, size: ${returnFileSize(file.size)}`;
+            $formUploadButton.removeAttribute("disabled");
+        } else {
+            $inputFileName.textContent = `${file.name} 은 적합한 파일이 아닙니다.`;
+        }
+    }
+}
+
+$uploadFile.addEventListener("change", updateImageFile);
+
+// 파일 업로드 처리하기
+const uploadProcess = () => {
+    const $imageSearch = document.querySelector("#imageSearch");
+    if(uploadReady == true) {
+        $imageSearch.method = "POST";
+        $imageSearch.action = "/mushroom/imageSearch";
+    }
+}
+
+$formUploadButton.addEventListener("click", uploadProcess);
+
+
+</script>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <!-- * *                               SB Forms JS                               * *-->
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

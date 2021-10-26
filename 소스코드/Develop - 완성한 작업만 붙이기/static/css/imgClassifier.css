@@ -1,3 +1,50 @@
+/* imgClassifier_input.html */
+.masthead {
+    height: 450px !important;
+}
+
+#uploadfile {
+   visibility: hidden;
+   display: none;
+}
+
+.uploadfileBtn {
+    text-align: center;
+    width: 138px !important;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 6px 12px;
+    background-color: rgb(0,0,0);
+    color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+.searchBtn {
+    text-align: center;
+    width: 138px !important;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 6px 12px;
+    background-color: rgb(0,0,0);
+    color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+.searchBtn:disabled {
+    text-align: center;
+    width: 138px !important;
+    height: 35px;
+    border: 0px solid #000;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: rgb(200,200,200);
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+/* imgClassifier_output.html */
 th, td {
     border: 0.5px solid rgb(50, 50, 50);
 }
