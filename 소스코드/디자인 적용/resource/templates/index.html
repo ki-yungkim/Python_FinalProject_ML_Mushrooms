@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('#loading').hide();
+        $('#testSurviveOrDeath').click(function(){
+            $('#loading').show();
+            return true;
+            });
+        $('#mushroomDish').click(function(){
+            $('#loading').show();
+            return true;
+            });
+        });
+    </script>
+    <title>메인페이지</title>
+</head>
+
+<body>
+<div id="loading" style="margin-left: 0px;">
+    <img src="/static/images/loadingImage.gif">
+    <p>정보를 불러오는 중 입니다.. 잠시 기다려주세요.</p>
+</div>
+
+
+<h3>Open Api 활용</h3>
+<a href="/resource/resourceForm">한글 이름으로 검색</a>
+<a href="/resource/resourceEngForm">영문 이름으로 검색</a>
+<a href="/img/imgForm">이름으로 사진 검색</a>
+<a href="/system/searchFormKor">한글 분류명 검색</a>
+<a href="/system/searchFormEng">영문 분류명 검색</a>
+<br>
+<h3>머신러닝</h3>
+<a href="/columns/standOutForm">특징으로 독성여부 판별</a>
+<a href="/mushroom/imgClassifier">이미지로 판별</a>
+<br>
+<h3>추가 메뉴</h3>
+<a id="testSurviveOrDeath" href="/resource/testSurviveOrDeath">독버섯 퀴즈</a>
+<a id="mushroomDish" href="/resource/mushroomDish">버섯요리 리스트</a>
+<br>
+</body>
+</html>
