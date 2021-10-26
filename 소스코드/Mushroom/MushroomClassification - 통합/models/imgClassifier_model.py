@@ -40,7 +40,7 @@ class imgClassifierService:
 
     def searchMushInfo(self, sw):
         sw = sw
-        api_Key = '0T%2F98gSX5j9sCWzfQv5sF20Bt3QHxB0k5iKt4tmI2lofZZemulH7eVuvEyF%2FhonmX4t1s%2Fdk3B%2FpmJ%2FmjoK9pA%3D%3D'
+        api_Key = ''
         url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService/fngsIlstrSearch?ServiceKey=' + api_Key
         url += '&st=2'
         url += '&sw=' + sw
