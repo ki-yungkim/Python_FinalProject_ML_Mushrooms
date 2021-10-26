@@ -47,16 +47,18 @@
             <p id="displaySpecButton">표시하기</a></p>
         </div>
         <div id="mushroomSpecRight" class="col-6">
-            <table class="RightTable">
+            <table class="RightTable table">
+                <thead>
                 <tr>
-                    <th>사진</th>
-                    <th>속국명</th>
-                    <th>속명</th>
-                    <th>국명</th>
+                    <th scope="col">사진</th>
+                    <th scope="col">속국명</th>
+                    <th scope="col">속명</th>
+                    <th scope="col">국명</th>
                 </tr>
+                </thead>
                 {% for data in list %}
                 <tr>
-                    <td><p onclick="openModal('{{data[0]}}', '{{data[3]}}')">보기</p></td>
+                    <th scope="col" class="modalPhotoView"><p onclick="openModal('{{data[0]}}', '{{data[3]}}')">보기</p></th>
                     <td>{{data[1]}}</td>
                     <td>{{data[2]}}</td>
                     <td>{{data[3]}}</td>
