@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script>
-        $(document).ready(function() {
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>이름으로 검색하기</title>
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon2.ico')}}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
 
-        $('#loading').hide();
-        $('#imageSearch').submit(function(){
-            $('#loading').show();
-            return true;
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}" ></script>
+
+        <!-- Loading -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+            $(document).ready(function() {
+
+            $('#loading').hide();
+            $('#imageSearch').submit(function(){
+                $('#loading').show();
+                return true;
+                });
             });
-        });
-    </script>
+        </script>
     <title>버섯 사진 판별</title>
-
 </head>
 <body>
 <div id="loading" style="margin-left: 0px;">
     <img src="/static/images/loadingImage.gif">
     <p>API 정보를 로딩 중 입니다.. 잠시 기다려주세요.</p>
 </div>
+<input type="checkbox" id="menuicon"/>
+    <ul>
+        <li>
+            <label for="menuicon" data-toggle="tooltip" data-placement="left" title="menu" style="left:20px;">
+                <span></span><span></span><span></span>
+            </label>
+        </li>
+    </ul>
+    <div class="sidebar">
+        <!-- 공공데이터 API -->
+        <li class="sidebar-text2"><span style="color:#FAD496">검색기능</span></li>
+        <li class="sidebar-text"><a href="/resource/resourceForm">한글 이름으로 검색</a></li>
+        <li class="sidebar-text"><a href="/resource/resourceEngForm">영문 이름으로 검색</a></li>
+        <li class="sidebar-text"><a href="/img/imgForm">이름으로 사진 검색</a></li>
+        <li class="sidebar-text"><a href="/system/searchFormKor">한글분류명 검색</a></li>
+        <li class="sidebar-text"><a href="/system/searchFormEng">영문분류명 검색</a></li>
+        <!-- Machine Learning -->
+        <li class="sidebar-text2"><span style="color:#FAD496">머신러닝</span></li>
+        <li class="sidebar-text"><a href="/feature/featureForm">특징으로 독성 여부 분류</a></li>
+        <li class="sidebar-text"><a href="/mushroom/imgClassifier">이미지로 판별</a></li>
+        <!-- JS script -->
+        <li class="sidebar-text2"><span style="color:#FAD496">추가정보</span></li>
+        <li class="sidebar-text"><a href="/resource/mushroomDish">버섯요리 레시피</a></li>
+        <li class="sidebar-text"><a href="/resource/testSurviveOrDeath">독버섯 퀴즈!</a></li>
+        <li class="sidebar-text"><a href="/resource//poisonousMushroom">독버섯 정보</a></li>
+    </div>
 
-<h5>판별하려는 버섯의 이미지를 업로드해주세요.</h5>
-<form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data">
-    <label for="uploadfile">업로드 파일</label>
-    <input type="file" id="uploadfile" name="uploadfile"/>
-    <br/>
-    <input type="submit" value="판별하기"/>
-</form>
+<div class="masthead">
+    <div class="masthead-content text-white">
+        <div class="container-fluid px-4 px-lg-0">
+            <p class="mb-5">궁금하신 버섯 사진을 검색해보세요.</p>
+            <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data">
+                <div class="row input-group-newsletter">
+                <label for="uploadfile">업로드 파일</label>
+                <input type="file" id="uploadfile" name="uploadfile"/>
+                <br/>
+                    <div class="col-4"><input class="searchButton" type="submit" value="판별하기"/></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
+<!-- Bootstrap core JS-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </html>

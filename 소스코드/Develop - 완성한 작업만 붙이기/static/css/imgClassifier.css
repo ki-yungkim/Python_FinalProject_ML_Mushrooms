@@ -7,22 +7,28 @@ th, td {
     width: 100%;
 }
 
+.masthead-content {
+    z-index: 20 !important;
+}
+
+.imgClassifierOutputContent {
+    width: 1080px !important;
+}
+
 .imgClassifierOutImg {
-    width: 450px;
+    width: 100%;
 }
 
 .mushroomSpecLeft {
-    flex-grow: 1;
 }
 
-.mushroomSpecRight {
-    flex-grow: 4;
+#mushroomSpecRight {
     visibility: hidden;
 }
 
-.mushroomSpecRight > table {
-    margin-top: 5%;
-    width: 95%;
+.RightTable {
+    margin-top: 10%;
+    width: 100%;
 }
 
 .mushroomSpacRight > table td {
@@ -52,6 +58,6 @@ th, td {
 }
 
 #modalPhoto {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
 }

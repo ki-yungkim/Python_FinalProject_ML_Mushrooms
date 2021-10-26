@@ -1,58 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>버섯 사진 판별 결과 보기</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>이름으로 검색하기</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon2.ico')}}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}" ></script>
+
+    <!-- Loading -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/imgClassifier.css')}}"/>
 </head>
 <body>
-<h3>사진 판별 결과</h3>
 <div class="container">
-<div class="mushroomSpecLeft">
-    {% if img != None %}
-    <p>판별한 버섯은 {{ res }}에 속합니다.</p>
-    <img class="imgClassifierOutImg" src="{{ url_for('static', filename='uploads/imgClassifier/'+img) }}" />
-    {% else %}
-    <p>불러온 이미지가 없습니다.</p>
-    {% endif %}
-    <p>동일한 속의 버섯의 더 많은 정보를 원하시나요?</p>
-    <p id="displaySpecButton">표시하기</a></p>
+    <!-- side menu-->
+    <input type="checkbox" id="menuicon"/>
+    <ul>
+        <li>
+            <label for="menuicon" data-toggle="tooltip" data-placement="left" title="menu" style="left:20px;">
+                <span></span><span></span><span></span>
+            </label>
+        </li>
+    </ul>
 
-</div>
-<div id="mushroomSpecRight" class="mushroomSpecRight">
-    <table>
-        <tr>
-            <th>사진</th>
-            <th>속국명</th>
-            <th>속명</th>
-             <th>국명</th>
-        </tr>
-        {% for data in list %}
-        <tr>
-            <td><p onclick="openModal('{{data[0]}}', '{{data[3]}}')">보기</p></td>
-            <td>{{data[1]}}</td>
-            <td>{{data[2]}}</td>
-            <td>{{data[3]}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-<div id="modal" class="modal">
-    <div class="modal-window">
-         <h4 id="modalTitle"></h4>
-        <img id="modalPhoto" src=""/>
+    <div class="sidebar">
+        <!-- 공공데이터 API -->
+        <li class="sidebar-text2"><span style="color:#FAD496">검색기능</span></li>
+        <li class="sidebar-text"><a href="/resource/resourceForm">한글 이름으로 검색</a></li>
+        <li class="sidebar-text"><a href="/resource/resourceEngForm">영문 이름으로 검색</a></li>
+        <li class="sidebar-text"><a href="/img/imgForm">이름으로 사진 검색</a></li>
+        <li class="sidebar-text"><a href="/system/searchFormKor">한글분류명 검색</a></li>
+        <li class="sidebar-text"><a href="/system/searchFormEng">영문분류명 검색</a></li>
+        <!-- Machine Learning -->
+        <li class="sidebar-text2"><span style="color:#FAD496">머신러닝</span></li>
+        <li class="sidebar-text"><a href="/feature/featureForm">특징으로 독성 여부 분류</a></li>
+        <li class="sidebar-text"><a href="/mushroom/imgClassifier">이미지로 판별</a></li>
+        <!-- JS script -->
+        <li class="sidebar-text2"><span style="color:#FAD496">추가정보</span></li>
+        <li class="sidebar-text"><a href="/resource/mushroomDish">버섯요리 레시피</a></li>
+        <li class="sidebar-text"><a href="/resource/testSurviveOrDeath">독버섯 퀴즈!</a></li>
+        <li class="sidebar-text"><a href="/resource//poisonousMushroom">독버섯 정보</a></li>
     </div>
-</div>
+    <div class="masthead-content">
+    <h3>사진 판별 결과</h3>
+        <div class="imgClassifierOutputContent row">
+        <div class="col-6">
+            {% if img != None %}
+            <p>판별한 버섯은 {{ res }}에 속합니다.</p>
+            <img class="imgClassifierOutImg" src="{{ url_for('static', filename='uploads/imgClassifier/'+img) }}" />
+            {% else %}
+            <p>불러온 이미지가 없습니다.</p>
+            {% endif %}
+            <p class="displaySpecP">동일한 속의 버섯의 더 많은 정보를 원하시나요?</p>
+            <p id="displaySpecButton">표시하기</a></p>
+        </div>
+        <div id="mushroomSpecRight" class="col-6">
+            <table class="RightTable">
+                <tr>
+                    <th>사진</th>
+                    <th>속국명</th>
+                    <th>속명</th>
+                    <th>국명</th>
+                </tr>
+                {% for data in list %}
+                <tr>
+                    <td><p onclick="openModal('{{data[0]}}', '{{data[3]}}')">보기</p></td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-window">
+                <h4 id="modalTitle"></h4>
+                <img id="modalPhoto" src=""/>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
 <script>
+const $displaySpecP0 = document.getElementsByClassName("displaySpecP")[0];
 const $displaySpecButton = document.getElementById("displaySpecButton");
 const $mushroomSpecRight = document.getElementById("mushroomSpecRight");
 
 $displaySpecButton.addEventListener("click", () => {
     // $displaySpecButton.style.visibility = "hidden";
     $mushroomSpecRight.style.visibility = "visible";
+    $displaySpecP0.style.visibility = "hidden";
+    $displaySpecButton.style.visibility = "hidden";
 });
 
 const $modal = document.getElementById("modal");

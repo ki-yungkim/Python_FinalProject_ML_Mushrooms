@@ -11438,6 +11438,8 @@ video.bg-video {
 .masthead2{
   position: relative;
   overflow: hidden;
+  overflow-y: visible !important;
+  background-color: rgb(0, 0, 0);
   z-index: 1;
   display: flex;
   align-items: center;
