@@ -14,7 +14,7 @@ class Feature:
 
 class FeatureService:
     def getResult(self, feature):
-        model = joblib.load('mushroom_model.pkl')  # 사용할 모델 파일 로드
+        model = joblib.load('mushroom_stand_out_model.pkl')  # 사용할 모델 파일 로드
         arr = np.zeros(49, dtype=int)
         for f in feature:
             arr[f] = 1
