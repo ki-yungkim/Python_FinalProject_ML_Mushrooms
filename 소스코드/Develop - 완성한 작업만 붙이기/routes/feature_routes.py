@@ -7,17 +7,15 @@ feature = feature_model.Feature
 
 # 입력 폼
 @fe_bp.route('/featureForm')
-def featureForm():
-    def Form():
-        cap_shape = None
-        cap_surface = None
-        cap_color = None
-        bruises = None
-        odor = None
-        gill_color = None
-        population = None
-        return render_template('featureForm.html', cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,
-                               bruises=bruises, odor=odor, gill_color=gill_color, population=population)
+def Form():
+    cap_shape = None
+    cap_surface = None
+    cap_color = None
+    bruises = None
+    odor = None
+    gill_color = None
+    population = None
+    return render_template('featureForm.html', cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
 
 # 버섯도감 목록 검색
 @fe_bp.route('/search', methods=['POST'])
@@ -29,8 +27,8 @@ def search():
     odor = int(request.form['odor'])
     gill_color = int(request.form['gill_color'])
     population = int(request.form['population'])
-    c = [cap_shape, cap_surface, cap_color, bruises, odor, gill_color, population]
-    res = fe_service.getResult(c)
+    f = [cap_shape, cap_surface, cap_color, bruises, odor, gill_color, population]
+    res = fe_service.getResult(f)
     if res == 1:
         res = '독버섯'
     else:
@@ -40,18 +38,16 @@ def search():
     cap_colorList = ['buff', 'cinnamon', 'red', 'gray', 'pink', 'green', 'purple', 'white', 'yellow']
     bruisesList = ['없음', '있음']
     odorList = ['almond', 'creosote', 'foul', 'anise', 'musty', 'none', 'pungent', 'spicy', 'fishy']
-    gill_colorList = ['buff', 'red', 'gray', 'chocolate', 'black', 'brown', 'orange', 'pink', 'green', 'purple',
-                      'white', 'yellow']
+    gill_colorList = ['buff', 'red', 'gray', 'chocolate', 'black', 'brown', 'orange', 'pink', 'green', 'purple', 'white','yellow']
     populationList = ['abundant', 'clustered', 'numerous', 'scattered', 'several', 'solitary']
 
     cap_shape = cap_shapeList[cap_shape]
-    cap_surface = cap_surfaceList[cap_surface - 6]
-    cap_color = cap_colorList[cap_color - 10]
-    bruises = bruisesList[bruises - 20]
-    odor = odorList[odor - 22]
-    gill_color = gill_colorList[gill_color - 31]
-    population = populationList[population - 43]
+    cap_surface = cap_surfaceList[cap_surface-6]
+    cap_color = cap_colorList[cap_color-10]
+    bruises = bruisesList[bruises-20]
+    odor = odorList[odor-22]
+    gill_color = gill_colorList[gill_color-31]
+    population = populationList[population-43]
 
-    return render_template('featureForm.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface,
-                           cap_color=cap_color, bruises=bruises, odor=odor, gill_color=gill_color,
-                           population=population)
+
+    return render_template('featureForm.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
