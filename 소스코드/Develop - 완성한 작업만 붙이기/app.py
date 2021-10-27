@@ -6,7 +6,7 @@ from flask import Flask, render_template
 from routes import resource_routes as r
 from routes import img_routes as ir
 from routes import system_routes as s
-from routes import feature_route as fe
+from routes import feature_routes as fe
 from routes import imgClassifier_routes
 
 # 플라스크 객체 생성
