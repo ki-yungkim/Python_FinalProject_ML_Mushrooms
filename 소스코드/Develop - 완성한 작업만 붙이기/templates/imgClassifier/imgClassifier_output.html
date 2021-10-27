@@ -28,17 +28,21 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/imgClassifier.css')}}"/>
 </head>
 <body>
-<div class="masthead2">
-    <!-- side menu-->
-    {% include './sideMenu/sidebar.html' %}
+<!-- side menu-->
+{% include './sideMenu/sidebar.html' %}
 
-    <!-- imgClassifier_output Content -->
+<!-- Background Video-->
+<video class="bg-video" playsinline="playsinline" preload="none" muted="muted" loop="true" autoplay="true">
+    <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
+</video>
+<div class="masthead2">
+<!-- imgClassifier_output Content -->
     <div class="masthead-content text-white">
     <h3>사진 판별 결과</h3>
         <div class="imgClassifierOutputContent row">
         <div class="col">
             {% if img != None %}
-            <p>판별한 버섯은 {{ res }}에 속합니다.</p>
+            <p>판별한 버섯은 {{ res }} 속으로 보입니다.</p>
             <img class="imgClassifierOutImg" src="{{ url_for('static', filename='uploads/imgClassifier/'+img) }}" />
             {% else %}
             <p>불러온 이미지가 없습니다.</p>
