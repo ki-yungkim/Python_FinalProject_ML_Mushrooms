@@ -45,31 +45,37 @@
             function drawChart() {
 
             var data = google.visualization.arrayToDataTable([
-              ['Task', '버섯 분석'],
-              ['식용',     416],
-              ['약용',      75],
-              ['독버섯',  237],
-              ['불명', 1334],
+              ['Month', '환자수', '사망수'],
+              ['1월', 0, 0],
+              ['2월', 0, 0],
+              ['3월', 0, 0],
+              ['4월', 4, 1],
+              ['5월', 0, 0],
+              ['6월', 0, 0],
+              ['7월', 0, 0],
+              ['8월', 5, 1],
+              ['9월', 27, 3],
+              ['10월', 0, 0],
+              ['11월', 0, 0],
+              ['12월', 0, 0]
+
             ]);
 
             var options = {
-                title: '',
+                title: '2014-2018년도 자연독으로 인한 식중독 발생 기록(출처: 식품안전정보원 식중독 통계)',
+                curveType: 'function',
                 backgroundColor: { fill:'transparent' },
-                pieSliceText: 'label',
-                pieSliceTextStyle: {
-                    color: 'black',
-                    fontName: 'system-ui',
-                    fontSize: '12px'
-                },
-                tooltip: {
-                    textStyle: {color: '#000000'},
-                    showColorCode: true
-                },
-                colors:['#83E9C0','#137D90','#DB5D5D','#FFF2E8'],
-                legend: 'none'
+                legend: {position: 'bottom', textStyle: {color: '#ffffff'}},
+                titleTextStyle:{color: '#ffffff'},
+                colors:['#ADE1F1','#D73B3B'],
+                hAxis : {
+                    textStyle : {
+                        color: '#ffffff'
+                    }
+                }
             };
 
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
             chart.draw(data, options);
             }
@@ -96,7 +102,8 @@
 
                     <h2 class="fst-italic lh-1 mb-4">Project_Mushroom!</h2>
                     <h4 class="fst-normal lh-1 mb-4" style="margin-top:15px;"><span style="color:#FAD496">중독사고</span> 발생 현황</h4>
-                    중독사고는 7월부터 가을철 산행 인구가 많은 10월 사이에 <br>
+                    <div id="curve_chart" style="width: 900px; height: 350px;margin-bottom:25px;"></div>
+                    중독사고는 7월부터 가을철 산행 인구가 많은 10월 사이 <br>
                     매년 꾸준히 독버섯 중독사고가 빈발하고 있음. <br>
                     ※ 2013~2017년(버섯 중독사고 데이터가 존재하는 기간)동안 47명의 독버섯 중독사고 환자 발생, 2명 사망 <br>
                     광대버섯류(긴골광대버섯, 독우산광대버섯, 마귀광대버섯, 턱받이광대버섯)<br>
