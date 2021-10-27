@@ -20,7 +20,7 @@
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="{{url_for('static', filename='js/script.js')}}" ></script>
+    <!-- <script src="{{url_for('static', filename='js/script.js')}}" ></script> -->
 
     <!-- Loading -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
@@ -28,17 +28,21 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/imgClassifier.css')}}"/>
 </head>
 <body>
-<div class="container">
-    <!-- side menu-->
-    {% include './sideMenu/sidebar.html' %}
+<!-- side menu-->
+{% include './sideMenu/sidebar.html' %}
 
-    <!-- imgClassifier_output Content -->
-    <div class="masthead-content">
+<!-- Background Video-->
+<video class="bg-video" playsinline="playsinline" preload="none" muted="muted" loop="true" autoplay="true">
+    <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
+</video>
+<div class="masthead2">
+<!-- imgClassifier_output Content -->
+    <div class="masthead-content text-white">
     <h3>사진 판별 결과</h3>
         <div class="imgClassifierOutputContent row">
-        <div class="col-6">
+        <div class="col">
             {% if img != None %}
-            <p>판별한 버섯은 {{ res }}에 속합니다.</p>
+            <p>판별한 버섯은 {{ res }} 속으로 보입니다.</p>
             <img class="imgClassifierOutImg" src="{{ url_for('static', filename='uploads/imgClassifier/'+img) }}" />
             {% else %}
             <p>불러온 이미지가 없습니다.</p>
@@ -46,8 +50,9 @@
             <p class="displaySpecP">동일한 속의 버섯의 더 많은 정보를 원하시나요?</p>
             <p id="displaySpecButton">표시하기</a></p>
         </div>
-        <div id="mushroomSpecRight" class="col-6">
-            <table class="RightTable table">
+        <div class="row">
+        <div id="mushroomSpecRight" class="col">
+            <table class="outputTable table mushroom-table">
                 <thead>
                 <tr>
                     <th scope="col">사진</th>
@@ -65,6 +70,7 @@
                 </tr>
                 {% endfor %}
             </table>
+        </div>
         </div>
         <div id="modal" class="modal">
             <div class="modal-window">

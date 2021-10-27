@@ -45,7 +45,10 @@
 </div>
 <!-- sidebar -->
 {% include './sideMenu/sidebar.html' %}
-
+<!-- Background Video-->
+<video class="bg-video" playsinline="playsinline" preload="none" muted="muted" loop="true" autoplay="true">
+    <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
+</video>
 <!-- imgClassifier_input -->
 <div class="masthead">
     <div class="masthead-content text-white">

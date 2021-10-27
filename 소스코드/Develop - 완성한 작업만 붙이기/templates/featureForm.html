@@ -1,148 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script>
-        $(document).ready(function() {
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>독버섯 여부</title>
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon1.ico')}}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static', filename='css/feature.css')}}" rel="stylesheet" />
 
-        $('#loading').hide();
-        $('#featureSearch').submit(function(){
-            $('#loading').show();
-            return true;
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}" ></script>
+
+        <!-- tooltip 이미지 나타내기 -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+
+        <!-- Loading -->
+        <!-- loading page -->
+        <div class="loading" id="loading">
+            <div class="loadingImg"><img src="/static/images/loadingImage.gif" style="width:100px;height:100px;"></div>
+            <h4><span style="color:#FAD496;font-weight:bold">결과 분석 </span>중 입니다...<br><br>
+            잠시 기다려주세요.</h4>
+        </div>
+
+        <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type='text/javascript'>
+           $(document).ready(function() {
+
+            $('#loading').hide();
+            $('#search').submit(function(){
+                $('#loading').show();
+                return true;
+                });
             });
-        });
-    </script>
-    <title>feature</title>
-</head>
-<body>
-<div id="loading" style="margin-left: 0px;">
-    <img src="/static/images/loadingImage.gif">
-    <p>분석 중 입니다.. 잠시 기다려주세요.</p>
-</div>
 
-<h3>버섯특징</h3>
-<form action="/feature/search" id="featureSearch" method="post">
-<table border="1">
-    <tr>
-        <td>멍</td>
-        <th>
-            <select name="bruises">
-                <option value=0>없음</option>
-                <option value=1>있음</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>냄새</td>
-        <th>
-            <select name="odor">
-                <option value=2>almond</option>
-                <option value=3>creosote</option>
-                <option value=4>foul</option>
-                <option value=5>anise</option>
-                <option value=6>musty</option>
-                <option value=7>none</option>
-                <option value=8>pungent</option>
-                <option value=9>spicy</option>
-                <option value=10>fishy</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>주름 크기</td>
-        <th>
-            <select name="gill_size">
-                <option value=11>broad</option>
-                <option value=12>narrow</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>주름 색깔</td>
-        <th>
-            <select name="gill_color">
-                <option value=13>buff</option>
-                <option value=14>red</option>
-                <option value=15>gray</option>
-                <option value=16>chocolate</option>
-                <option value=17>black</option>
-                <option value=18>brown</option>
-                <option value=19>orange</option>
-                <option value=20>pink</option>
-                <option value=21>green</option>
-                <option value=22>purple</option>
-                <option value=23>white</option>
-                <option value=24>yellow</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>몸통 고리 위 기둥 표면</td>
-        <th>
-            <select name="stalk_surface_above_ring">
-                <option value=25>silky</option>
-                <option value=26>smooth</option>
-                <option value=27>scaly</option>
-                <option value=28>fibrous</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>몸통 고리 아래 기둥 표면</td>
-        <th>
-            <select name="stalk_surface_below_ring">
-                <option value=29>silky</option>
-                <option value=30>smooth</option>
-                <option value=31>scaly</option>
-                <option value=32>fibrous</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>고리 타입</td>
-        <th>
-            <select name="ring_type">
-                <option value=33>evanescent</option>
-                <option value=34>flaring</option>
-                <option value=35>large</option>
-                <option value=36>none</option>
-                <option value=37>pendant</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>포자 무늬 색깔</td>
-        <th>
-            <select name="spore_print_color">
-                <option value=38>buff</option>
-                <option value=39>chocolate</option>
-                <option value=40>black</option>
-                <option value=41>brown</option>
-                <option value=42>orange</option>
-                <option value=43>green</option>
-                <option value=44>purple</option>
-                <option value=45>white</option>
-                <option value=46>yellow</option>
-            </select>
-        </th>
-    </tr>
-    <tr>
-        <td>개체군</td>
-        <th>
-            <select name="population">abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y
-                <option value=47>abundant</option>
-                <option value=48>clustered</option>
-                <option value=49>numerous</option>
-                <option value=50>scattered</option>
-                <option value=51>several</option>
-                <option value=52>solitary</option>
-            </select>
-        </th>
-    </tr>
-    <tr><th colspan="2"><input type="submit" value="검색"></th></tr>
-</table>
-</form>
-</body>
+           $(function () {
+            $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
+            });
+
+        </script>
+    </head>
+    <body>
+        <!-- side menu-->
+        <input type="checkbox" id="menuicon">
+            <ul>
+                <li>
+                    <label for="menuicon" data-toggle="tooltip" data-placement="left" title="menu" style="left:20px;">
+                        <span></span><span></span><span></span>
+                    </label>
+                </li>
+            </ul>
+
+            <div class="sidebar">
+            <!-- 홈버튼 -->
+                <li class="sidebar-text2"><span style="color:#FAD496"><img src="/static/images/home.png" width="25" height="25"> 홈</span></li>
+                <li class="sidebar-text"><a href="/">홈으로</a></li>
+            <!-- 공공데이터 API -->
+                <li class="sidebar-text2"><span style="color:#FAD496"><img src="/static/images/search.png" width="25" height="25"> 검색기능</span></li>
+                <li class="sidebar-text"><a href="/resource/resourceForm">한글 이름으로 검색</a></li>
+                <li class="sidebar-text"><a href="/resource/resourceEngForm">영문 이름으로 검색</a></li>
+                <li class="sidebar-text"><a href="/img/imgForm">이름으로 사진 검색</a></li>
+                <li class="sidebar-text"><a href="/system/searchFormKor">한글분류명 검색</a></li>
+                <li class="sidebar-text"><a href="/system/searchFormEng">영문분류명 검색</a></li>
+            <!-- Machine Learning -->
+                <li class="sidebar-text2"><span style="color:#FAD496"><img src="/static/images/machineLearning2.png" width="25" height="25"> 머신러닝</span></li>
+                <li class="sidebar-text"><a href="/feature/featureForm">특징으로 독성 여부 분류</a></li>
+                <li class="sidebar-text"><a href="/mushroom/imgClassifier">이미지로 판별</a></li>
+            <!-- JS script -->
+                <li class="sidebar-text2"><span style="color:#FAD496"><img src="/static/images/information.png" width="25" height="25"> 추가정보</span></li>
+                <li class="sidebar-text"><a href="/resource/mushroomDish">버섯요리 레시피</a></li>
+                <li class="sidebar-text"><a href="/resource/testSurviveOrDeath">독버섯 퀴즈!</a></li>
+                <li class="sidebar-text"><a href="/resource//poisonousMushroom">독버섯 정보</a></li>
+            </div>
+
+        <!-- Background Video-->
+        <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="{{url_for('static', filename='mp4/bg6.mp4')}}" type="video/mp4" /></video>
+       <!-- Masthead2 본문-->
+        <div class="masthead2">
+            <div class="masthead-content text-white">
+                <div class="feature">
+                    <h3 class="fst-normal lh-1 mb-4">버섯특징</h3>
+                    <form action="/feature/search" id="search" method="post">
+                    <table class="feature" border="1">
+                        <tr>
+                            <td>갓 모양&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right"  title="<img src='../static/images/cap_shapes.png'>"><i class="far fa-question-circle"></i></span></td>
+                            <th>
+                                <select name="cap_shape">
+                                    <option value="0">bell</option>
+                                    <option value="1">conical</option>
+                                    <option value="2">flat</option>
+                                    <option value="3">knobbed</option>
+                                    <option value="4">sunken</option>
+                                    <option value="5">convex</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>갓 표면&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right"  title="<img src='../static/images/cap_surface.jpg'>"><i class="far fa-question-circle"></i></span></td>
+                            <th>
+                                <select name="cap_surface">
+                                    <option value="6">fibrous</option>
+                                    <option value="7">grooves</option>
+                                    <option value="8">smooth</option>
+                                    <option value="9">scaly</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>갓 색깔&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right" title="<img src='../static/images/color.png'>"><i class="far fa-question-circle"></i></span></td>
+                            <th>
+                                <select name="cap_color">
+                                    <option value="10">buff</option>
+                                    <option value="11">cinnamon</option>
+                                    <option value="12">red</option>
+                                    <option value="13">gray</option>
+                                    <option value="14">brown</option>
+                                    <option value="15">pink</option>
+                                    <option value="16">green</option>
+                                    <option value="17">purple</option>
+                                    <option value="18">white</option>
+                                    <option value="19">yellow</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>멍&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right"  title="<img src='../static/images/bruises.png'>"><i class="far fa-question-circle"></i></span></td>
+                            <th>
+                                <select name="bruises">
+                                    <option value=20>없음</option>
+                                    <option value=21>있음</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>냄새</td>
+                            <th>
+                                <select name="odor">
+                                    <option value=22>아몬드향</option>
+                                    <option value=23>훈연향</option>
+                                    <option value=24>악취</option>
+                                    <option value=25>팔각향</option>
+                                    <option value=26>곰팡내</option>
+                                    <option value=27>없음</option>
+                                    <option value=28>톡 쏘는 냄새</option>
+                                    <option value=29>매운내</option>
+                                    <option value=30>비린내 </option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>주름 색깔&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right" title="<img src='../static/images/color.png'>"><i class="far fa-question-circle"></i></span></td>
+                            <th>
+                                <select name="gill_color">
+                                    <option value=31>buff</option>
+                                    <option value=32>red</option>
+                                    <option value=33>gray</option>
+                                    <option value=34>chocolate</option>
+                                    <option value=35>black</option>
+                                    <option value=36>brown</option>
+                                    <option value=37>orange</option>
+                                    <option value=38>pink</option>
+                                    <option value=39>green</option>
+                                    <option value=40>purple</option>
+                                    <option value=41>white</option>
+                                    <option value=42>yellow</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>개체군</td>
+                            <th>
+                                <select name="population">
+                                    <option value=43>abundant</option>
+                                    <option value=44>clustered</option>
+                                    <option value=45>numerous</option>
+                                    <option value=46>scattered</option>
+                                    <option value=47>several</option>
+                                    <option value=48>solitary</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr><th colspan="2"><input type="submit" value="분석"></th></tr>
+                    </table>
+                    </form>
+                </div>
+                <div class="feature">
+                    <h3 class="fst-normal lh-1 mb-4">선택한 특징</h3>
+                    <table border="1">
+                        <tr><th>갓 모양</th><th>갓 표면</th><th>갓 색깔</th><th>멍</th><th>냄새</th><th>주름 색깔</th><th>개체군</th></tr>
+                        <tr>
+                            <th>{{cap_shape}}</th>
+                            <th>{{cap_surface}}</th>
+                            <th>{{cap_color}}</th>
+                            <th>{{bruises}}</th>
+                            <th>{{odor}}</th>
+                            <th>{{gill_color}}</th>
+                            <th>{{population}}</th>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table>
+                        <tr class="result">
+                            <td>분석결과</td>
+                            <th >
+                                {% if res == '독버섯' %}
+                                <span  style="color:red;">{{res}}</span>일 확률이 높습니다.
+                                {%elif res == '독버섯 아님'%}
+                                <span>독버섯이 아닐 확률이 높습니다(식용 여부는 알 수 없습니다.)</span>
+                                {%else%}
+                                <span>특징을 선택해 분석을 진행하세요</span>
+                                {%endif%}
+
+                            </th>
+                        </tr>
+                    </table>
+                    <br>
+
+
+                    <!-- 되돌아가기 -->
+                    <div>
+                          <a href="/" class="link-main">메인으로</a>
+                    </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>

@@ -6,7 +6,7 @@ from flask import Flask, render_template
 from routes import resource_routes as r
 from routes import img_routes as ir
 from routes import system_routes as s
-from routes import stand_out_route as so
+from routes import feature_routes as fe
 from routes import imgClassifier_routes
 
 # 플라스크 객체 생성
@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.register_blueprint(r.re_bp)
 app.register_blueprint(ir.is_bp)
 app.register_blueprint(s.sy_bp)
-app.register_blueprint(so.co_bp)
+app.register_blueprint(fe.fe_bp)
 app.register_blueprint(imgClassifier_routes.mushroom_bp)
 
 class Net(nn.Module):
