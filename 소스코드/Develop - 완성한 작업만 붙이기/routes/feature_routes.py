@@ -50,4 +50,4 @@ def search():
     population = populationList[population-43]
 
 
-    return render_template('featureForm.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
+    return render_template('featureResult.html', res=res, cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)

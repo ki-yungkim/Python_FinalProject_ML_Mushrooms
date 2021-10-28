@@ -97,6 +97,7 @@
 
                     <h5>버섯의 특징을 선택하고 독버섯 여부를 판별해보세요.</h5>
                     <div>(<i class="far fa-question-circle"></i>에 마우스를 올리면 도움말을 확인 할 수 있습니다.)</div>
+
                     <form action="/feature/search" id="search" method="post">
                     <table class="feature" border="1">
                         <tr>
@@ -201,37 +202,7 @@
                     </table>
                     </form>
                 </div>
-                <div class="feature">
-                    <h3 class="fst-normal lh-1 mb-4">선택한 특징</h3>
-                    <table border="1">
-                        <tr><th>갓 모양</th><th>갓 표면</th><th>갓 색깔</th><th>멍</th><th>냄새</th><th>주름 색깔</th><th>개체군</th></tr>
-                        <tr>
-                            <th>{{cap_shape}}</th>
-                            <th>{{cap_surface}}</th>
-                            <th>{{cap_color}}</th>
-                            <th>{{bruises}}</th>
-                            <th>{{odor}}</th>
-                            <th>{{gill_color}}</th>
-                            <th>{{population}}</th>
-                        </tr>
-                    </table>
-                    <br/>
-                    <table class="feature">
-                        <tr class="result">
-                            <td>분석결과</td>
-                            <th >
-                                {% if res == '독버섯' %}
-                                <span  style="color:red;">{{res}}</span>일 확률이 높습니다.
-                                {%elif res == '독버섯 아님'%}
-                                <span>독버섯이 아닐 확률이 높습니다(식용 여부는 알 수 없습니다.)</span>
-                                {%else%}
-                                <span>특징을 선택해 분석을 진행하세요</span>
-                                {%endif%}
 
-                            </th>
-                        </tr>
-                    </table>
-                    <br>
 
 
                     <!-- 되돌아가기 -->
