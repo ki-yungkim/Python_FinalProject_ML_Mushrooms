@@ -95,14 +95,14 @@
                     <h2 class="fst-italic lh-1 mb-4">Project Mushroom</h2>
                     <h4 class="fst-normal lh-1 mb-4" style="color:#FAD496">독버섯 판별</h4>
 
-                    <h5>버섯의 특징을 선택하고 독버섯 여부를 판별해보세요.</h5>
+                    <h5 class="head">버섯의 특징을 선택하고 독버섯 여부를 판별해보세요.</h5>
                     <div>(<i class="far fa-question-circle"></i>에 마우스를 올리면 도움말을 확인 할 수 있습니다.)</div>
 
                     <form action="/feature/search" id="search" method="post">
                     <table class="feature" border="0">
                         <tr>
                             <td><h5 class="detailExplain">갓 모양&emsp;<span data-html="true" data-toggle="tooltip" data-placement="right"  title="<img src='../static/images/cap_shapes.png'>"><i class="far fa-question-circle"></i></span></h5></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="cap_shape" style="color:white;background:black;border:1px solid;">
                                     <option value="0">bell</option>
                                     <option value="1">conical</option>
@@ -115,7 +115,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">갓 표면&emsp;<span data-html="true" data-toggle="tooltip" title="<img src='../static/images/cap_surface.jpg'>"><i class="far fa-question-circle"></i></span></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="cap_surface">
                                     <option value="6">fibrous</option>
                                     <option value="7">grooves</option>
@@ -126,7 +126,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">갓 색깔&emsp;<span data-html="true" data-toggle="tooltip" title="<img src='../static/images/color.png'>"><i class="far fa-question-circle"></i></span></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="cap_color">
                                     <option value="10">buff</option>
                                     <option value="11">cinnamon</option>
@@ -143,7 +143,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">멍&emsp;<span data-html="true" data-toggle="tooltip" title="<img src='../static/images/bruises.png'>"><i class="far fa-question-circle"></i></span></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="bruises">
                                     <option value=20>없음</option>
                                     <option value=21>있음</option>
@@ -152,7 +152,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">냄새</h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="odor">
                                     <option value=22>아몬드향</option>
                                     <option value=23>훈연향</option>
@@ -168,7 +168,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">주름 색깔&emsp;<span data-html="true" data-toggle="tooltip" title="<img src='../static/images/color.png'>"><i class="far fa-question-circle"></i></span></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="gill_color">
                                     <option value=31>buff</option>
                                     <option value=32>red</option>
@@ -187,7 +187,7 @@
                         </tr>
                         <tr>
                             <td><h5 class="detailExplain">개체군&emsp;<span data-html="true" data-toggle="tooltip" title="<img src='../static/images/population.png'>"><i class="far fa-question-circle"></i></span></h5></td>
-                            <th>
+                            <th class="opt">
                                 <select name="population">
                                     <option value=43>abundant</option>
                                     <option value=44>clustered</option>
@@ -215,12 +215,6 @@
 
         <!-- Bootstrap core JS-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
     </body>
 </html>
