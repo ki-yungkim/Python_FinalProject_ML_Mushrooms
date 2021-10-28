@@ -38,13 +38,14 @@ span.info{
 }
 .tooltip-inner {max-width: 1000px}
 .analysisBtn {
-
+    display: flex;
+    margin-left: 38px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     position: relative;
-    width: 180px;
+    width: 225px;
     height: 30px;
     background: #FAD496;
     border-radius: 8px;
