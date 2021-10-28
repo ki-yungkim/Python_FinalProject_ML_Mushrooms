@@ -33,6 +33,10 @@
                 return true;
                 });
             });
+
+            $(function () {
+            $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
+            });
         </script>
     <title>버섯 사진 판별</title>
 </head>
@@ -47,7 +51,7 @@
 {% include './sideMenu/sidebar.html' %}
 <!-- Background Video-->
 <video class="bg-video" playsinline="playsinline" preload="metadata" muted="muted" loop="true" autoplay="true">
-    <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
+    <source src="{{url_for('static', filename='mp4/bg6.mp4')}}" type="video/mp4" />
 </video>
 <!-- imgClassifier_input -->
 <div class="masthead">
@@ -61,7 +65,7 @@
                 </i>
             </p>
                 <!-- <p class="tooltip-custom"> 속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.</p> -->
-            <p class="sentence2 tooltip-custom-open">
+            <p class="sentence2 tooltip-custom-open" style="padding-bottom: 10px;">
                 분류하는 <b>9가지 속</b> 목록
                 <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top"
                    title="Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus">
@@ -71,22 +75,21 @@
             <!-- <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data"> -->
             <form name="imageSearch" id="imageSearch"  enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-4" style="padding: 0">
+                    <div class="col-5" style="padding: 0">
                         <label class="uploadfileBtn" for="uploadfile" accept=".jpg,.jpeg,.png">업로드 파일</label>
                         <input type="file" id="uploadfile" name="uploadfile"/>
                     </div>
                     <div class="col-6" style="padding: 0">
                         <input id="searchBtn" class="searchBtn" type="submit" value="판별하기" disabled/>
                     </div>
-                    <p class="sentence2"> 파일은 .jpg .png만 첨부 가능합니다.</p>
+                    <p class="sentence2"> .jpg .png만 첨부 가능</p>
                     <p id="inputFileName">No File</p>
                 </div>
             </form>
     </div>
 </div>
 </body>
-<!-- Bootstrap core JS-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script type="text/javascript">
@@ -145,9 +148,8 @@ $formUploadButton.addEventListener("click", uploadProcess);
 
 
 </script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<!-- Bootstrap core JS-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+
 </html>

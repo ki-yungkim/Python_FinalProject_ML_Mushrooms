@@ -59,7 +59,7 @@
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
 
-                    <h2 class="fst-italic lh-1 mb-4">Project_Mushroom!</h2>
+                    <h2 class="fst-italic lh-1 mb-4">Project Mushroom</h2>
                     {% for data in List %}
                     <h4 class="fst-normal lh-1 mb-4"><span style="color:#FAD496">{{data[0]}}({{data[1]}})</span> 상세 정보</h4>
                     <table class="mushroom-table">
@@ -68,9 +68,10 @@
                         <tr><th class="detailName">분류군명</th><td class="detailExplain">{{data[1]}}</td></tr>
                         <tr><th class="detailName">분류군ID</th><td class="detailExplain">{{data[2]}}</td></tr>
                         <form name="detail" action="/system/systemInfoRequest" method="POST">
-                        <tr><th class="detailName">상위분류군ID</th><td class="detailExplain" style="text-align: center;"><input class="detail" type="submit" name="q1" value="{{data[3]}}" style="border: 0px;"></td></tr>
+                        <tr><th class="detailName">상위분류군ID</th><td class="detailExplain">
+                            <input class="detail" type="submit" name="q1" value="{{data[3]}}" style="font-size:18px; font-weight: bold; border: 0px; color: #DE7F38;"></td></tr>
                         </form>
-                        <tr><th class="detailName">저작권설명</th><td class="detailExplain">{{data[4]}}</td></tr>
+                        <tr><th class="detailName">저작권</th><td class="detailExplain">국립수목원</td></tr>
                         {% endfor %}
                     </table>
 
@@ -84,12 +85,5 @@
 
         <!-- Bootstrap core JS-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>영문분류명 검색</title>
+    <title>영문분류군 검색</title>
     <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon2.ico')}}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -49,19 +49,19 @@
         {% include './sideMenu/sidebar.html' %}
 
         <!-- Background Video-->
-        <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" /></video>
+        <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="{{url_for('static', filename='mp4/bg3.mp4')}}" type="video/mp4" /></video>
 
 <!-- Masthead-->
     <div class="masthead">
         <div class="masthead-content text-white">
             <div class="container-fluid px-4 px-lg-0">
-                <h1 class="fst-italic lh-1 mb-4">Project Mushroom!</h1>
-                <p class="mb-5">궁금하신 버섯의 영문 이름을 검색해보세요.</p>
+                <h1 class="fst-italic lh-1 mb-4">Project Mushroom</h1>
+                <p class="mb-5">영문 이름으로 분류군을 검색해보세요.</p>
                     <form action="/system/searchEng" id="searchEng"  method="POST">
                         <div class="row input-group-newsletter">
                             <input type="hidden" name="st" value="2">
                             <div class="col">
-                                <input type="text" name="sw" placeholder="검색할 버섯명을 입력해주세요">
+                                <input type="text" name="sw" placeholder="검색할 영문 이름을 입력해주세요">
                             </div>
                             <input type="hidden" name="numOfRows" value="10">
                             <input type="hidden" name="pageNo" value="1">
@@ -76,12 +76,6 @@
 
     <!-- Bootstrap core JS-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </form>
 </body>

@@ -26,6 +26,13 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/imgClassifier.css')}}"/>
+
+    <script>
+        $(function () {
+        $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
+        });
+    </script>
+
 </head>
 <body>
 <!-- side menu-->
@@ -33,7 +40,7 @@
 
 <!-- Background Video-->
 <video class="bg-video" playsinline="playsinline" preload="none" muted="muted" loop="true" autoplay="true">
-    <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
+    <source src="{{url_for('static', filename='mp4/bg6.mp4')}}" type="video/mp4" />
 </video>
 <div class="masthead2">
 <!-- imgClassifier_output Content -->
@@ -111,3 +118,5 @@ $modalPhoto.addEventListener("click", () => {
 });
 
 </script>
+<!-- Bootstrap core JS-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
