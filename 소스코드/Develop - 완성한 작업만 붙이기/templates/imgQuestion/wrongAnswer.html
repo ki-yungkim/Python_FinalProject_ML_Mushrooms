@@ -58,13 +58,13 @@
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
                     <!-- 정답여부 -->
-                    <img src="/static/images/poison1.png" width="200" height="200">
                     <h2 class="fst-italic lh-1 mb-4">Project Mushroom</h2>
+                    <img src="/static/images/poison1.png" width="200" height="200">
                     <h3 class="fst-normal lh-1 mb-4">당신이 고른 버섯은 <span style="color:#F8000B">독</span>버섯인 '<span style="color:#FAD496">{{name}}</span>'입니다.</h3>
 
                     <!-- 버섯에 관한 명언 -->
-                    <h4 class="fst-normal lh-1 mb-3" style="margin-top:30px;"><span style="color:#10D34E">약초꾼</span>들에게 내려오는 명언</h4><br>
-                    <h3 class="fst-normal lh-1 mb-3" style="white-space:pre">{{msg}}</h3><br>
+                        <h6 class="fst-normal lh-1 mb-3" style="margin-top:30px;">약초꾼들에게 내려오는 명언</h6><br>
+                        <h3 class="fst-normal lh-1 mb-3" style="white-space:pre;color:#10D34E;">{{msg}}</h3><br>
 
                     <!-- 버섯정보 -->
                     <form action="/resource/searchRequest" id=searchRequest method="POST">
