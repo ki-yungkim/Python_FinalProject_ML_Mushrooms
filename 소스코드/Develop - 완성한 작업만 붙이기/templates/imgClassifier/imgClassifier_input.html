@@ -42,10 +42,16 @@
 </head>
 <body>
 <!-- loading page -->
-<div class="loading" id="loading">
-    <div class="loadingImg"><img src="/static/images/loadingImage.gif" style="width:100px;height:100px;"></div>
-    <h4><span style="color:#FAD496;font-weight:bold">API </span>정보를 로딩 중 입니다...<br><br>
-        잠시 기다려주세요.</h4>
+<div class="loading" id="loading" style="justify-items: center !important; left: -10%;
+    width: 110% !important;">
+    <div class="loadingImg">
+        <img src="/static/images/loadingImage.gif" style="width:100px;height:100px;">
+        <h4 style="color: #EEE;">
+            <span style="color:#FAD496;font-weight:bold !important">머신러닝 모델</span>을 활용해 결과 분석 중 입니다.
+            <br><br>
+            잠시 기다려주세요.
+        </h4>
+    </div>
 </div>
 <!-- sidebar -->
 {% include './sideMenu/sidebar.html' %}
