@@ -11325,8 +11325,8 @@ body:before {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #F3F6FA;
-  opacity: 0.6;
+  background-color: #585F67;
+  opacity: 0.7;
   z-index: 1;
 }
 
@@ -11412,7 +11412,7 @@ video.bg-video {
   .masthead:before {
     transform: skewX(-9deg);
     transform-origin: top right;
-    opacity:0.6;
+    opacity:0.8;
   }
   .masthead .masthead-content {
     padding-top: 0;
@@ -11556,7 +11556,7 @@ div[class="sidebar"] {width:300px;height:100%;background:#000000; position:fixed
 input[id="menuicon"]:checked + ul + div {right:0;}
 
 .sidebar-text2 {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: 'Pretendard';
     text-align : left;
     color: white;
@@ -11568,7 +11568,7 @@ input[id="menuicon"]:checked + ul + div {right:0;}
 }
 
 .sidebar-text {
-    margin-top: 10px;
+    margin-top: 5px;
     font-family: 'Pretendard';
     text-align : left;
               
@@ -11577,7 +11577,7 @@ input[id="menuicon"]:checked + ul + div {right:0;}
 .sidebar-text a {
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .loading {
