@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>이름으로 검색하기</title>
+        <title>이미지 분석</title>
         <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon2.ico')}}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -46,22 +46,42 @@
 <!-- sidebar -->
 {% include './sideMenu/sidebar.html' %}
 <!-- Background Video-->
-<video class="bg-video" playsinline="playsinline" preload="none" muted="muted" loop="true" autoplay="true">
+<video class="bg-video" playsinline="playsinline" preload="metadata" muted="muted" loop="true" autoplay="true">
     <source src="{{url_for('static', filename='mp4/bg2.mp4')}}" type="video/mp4" />
 </video>
 <!-- imgClassifier_input -->
 <div class="masthead">
-    <div class="masthead-content text-white">
-        <div class="container-fluid px-4 px-lg-0">
-            <p class="mb-5">궁금하신 버섯 사진을 검색해보세요.</p>
+    <div class="masthead-content masthead-content-custom text-white">
+            <p class="title">버섯 사진을 검색해보세요.</p>
+            <p class="sentence2">버섯 사진을 분석하여 9가지 속으로 분류 할 수 있습니다.</p>
+            <p class="sentence2">
+                <b>속(genus)</b>이란?
+                <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top"
+                   title="속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.">
+                </i>
+            </p>
+                <!-- <p class="tooltip-custom"> 속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.</p> -->
+            <p class="sentence2 tooltip-custom-open">
+                분류하는 <b>9가지 속</b> 목록
+                <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top"
+                   title="Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus">
+                </i>
+            </p>
+            <!-- <p class="sentence tooltip-custom">Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus</p> -->
             <!-- <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data"> -->
             <form name="imageSearch" id="imageSearch"  enctype="multipart/form-data">
-                <label class="uploadfileBtn" for="uploadfile" accept=".jpg,.jpeg,.png">업로드 파일</label>
-                <input type="file" id="uploadfile" name="uploadfile"/>
-                <p id="inputFileName">No File</p>
-                <input id="searchBtn" class="searchBtn" type="submit" value="판별하기" disabled/>
+                <div class="row">
+                    <div class="col-4" style="padding: 0">
+                        <label class="uploadfileBtn" for="uploadfile" accept=".jpg,.jpeg,.png">업로드 파일</label>
+                        <input type="file" id="uploadfile" name="uploadfile"/>
+                    </div>
+                    <div class="col-6" style="padding: 0">
+                        <input id="searchBtn" class="searchBtn" type="submit" value="판별하기" disabled/>
+                    </div>
+                    <p class="sentence2"> 파일은 .jpg .png만 첨부 가능합니다.</p>
+                    <p id="inputFileName">No File</p>
+                </div>
             </form>
-        </div>
     </div>
 </div>
 </body>
@@ -110,7 +130,6 @@ const updateImageFile = () => {
         }
     }
 }
-
 $uploadFile.addEventListener("change", updateImageFile);
 
 // 파일 업로드 처리하기

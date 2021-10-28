@@ -58,6 +58,24 @@ th, td {
 .masthead-content {
     z-index: 20 !important;
 }
+.masthead-content-custom {
+    height: 250px;
+}
+
+.masthead .masthead-content .title {
+    font-size: 2.0rem;
+}
+.masthead .masthead-content .sentence {
+    font-size: 1.1rem;
+}
+.masthead .masthead-content .sentence2 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+.tooltip-custom {
+    display: none;
+}
+
 
 .imgClassifierOutputContent {
 }
