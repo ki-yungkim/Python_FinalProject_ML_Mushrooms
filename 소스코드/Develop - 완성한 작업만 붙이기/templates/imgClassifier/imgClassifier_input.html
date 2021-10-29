@@ -19,7 +19,7 @@
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="{{url_for('static', filename='js/script.js')}}" ></script>
+        <script src="{{url_for('static', filename='js/scripts.js')}}" ></script>
 
         <!-- Loading -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
@@ -64,19 +64,40 @@
     <div class="masthead-content masthead-content-custom text-white">
             <!-- <p class="title">버섯 사진을 검색해보세요.</p> -->
             <h1 class="fst-italic lh-1 mb-4" style="font-size: 2.7rem !important">버섯 사진을 검색해보세요.</h1>
-            <p class="sentence2">버섯 사진을 분석하여 9가지 속으로 분류 할 수 있습니다.</p>
+            <p class="sentence2 ">버섯 사진을 분석하여 9가지 속으로 분류 할 수 있습니다.</p>
             <p class="sentence2">
                 <b>속(genus)</b>이란?
-                <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top"
-                   title="속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.">
-                </i>
+                <span class="customToolTip">
+                    <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top">
+                    </i>
+                    <span class="customToolTipSpan" style="
+                          position:absolute; display:none;
+                          margin-left: 10px;
+                          border-radius: 5px;
+                          background-color:rgb(200,200,200);
+                          color:#000;
+                    ">
+                        속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.
+                    </span>
+                </span>
+
             </p>
                 <!-- <p class="tooltip-custom"> 속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.</p> -->
             <p class="sentence2 tooltip-custom-open" style="padding-bottom: 10px;">
                 분류하는 <b>9가지 속</b> 목록
-                <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top"
-                   title="Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus">
-                </i>
+                <span class="customToolTip">
+                    <i class="far fa-question-circle" data-html="true" data-toggle="tooltip" data-placement="top">
+                    </i>
+                    <span class="customToolTipSpan" style="
+                          position:absolute; display:none;
+                          margin-left: 10px;
+                          border-radius: 5px;
+                          background-color:rgb(200,200,200);
+                          color:#000;
+                    ">
+                        Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus
+                    </span>
+                </span>
             </p>
             <!-- <p class="sentence tooltip-custom">Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus</p> -->
             <!-- <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data"> -->
@@ -98,7 +119,6 @@
 </body>
 
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
 <script type="text/javascript">
 // 업로드할 파일 이름 처리하기
 const $uploadFile = document.querySelector("#uploadfile");
@@ -142,6 +162,24 @@ const updateImageFile = () => {
 }
 $uploadFile.addEventListener("change", updateImageFile);
 
+// 커스텀툴팁
+const $customToolTipMark = document.querySelectorAll(".customToolTip");
+let newDIV = document.createElement("div");
+let newP = document.createElement("p");
+
+for(let i=0; i<$customToolTipMark.length; i++) {
+    $customToolTipMark[i].addEventListener("mouseenter", () => {
+        let lastEl = $customToolTipMark[i].lastChild.previousSibling;
+        // console.log(lastEl.innerHTML);
+        lastEl.style.display = "inline-block";
+    });
+   $customToolTipMark[i].addEventListener("mouseleave", () => {
+        let lastEl = $customToolTipMark[i].lastChild.previousSibling;
+        lastEl.style.display = "none";
+   });
+}
+
+
 // 파일 업로드 처리하기
 const uploadProcess = () => {
     const $imageSearch = document.querySelector("#imageSearch");
@@ -152,7 +190,6 @@ const uploadProcess = () => {
 }
 
 $formUploadButton.addEventListener("click", uploadProcess);
-
 
 </script>
 
