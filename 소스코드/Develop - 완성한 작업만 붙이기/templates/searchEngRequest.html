@@ -74,9 +74,11 @@
                                 {% if '불명' in data[4] %}
                                 <td><img src="/static/images/idontKnow.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="식독 불명"></td>
                                 {% elif '부' in data[4] %}
-                                <td><img src="/static/images/poison1.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="독버섯"></td>
+                                <td><img src="/static/images/dontEat.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="식용 부적합"></td>
                                 {% elif '식용' in data[4] %}
                                 <td><img src="/static/images/mushroomSoup.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="식용 버섯"></td>
+                                {% elif '약' in data[4] %}
+                                <td><img src="/static/images/hurb.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="약용 버섯"></td>
                                 {% else %}
                                 <td><img src="/static/images/poison1.png" width="100" height="100" data-toggle="tooltip" data-placement="left" title="독버섯"></td>
                                 {% endif %}
