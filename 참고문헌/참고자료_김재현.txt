@@ -1,0 +1,46 @@
+References
+
+- 플로우차트 
+	Flowchart Maker & Online Diagram Software : https://app.diagrams.net/
+	기호 정보 : http://tcpschool.com/codingmath/flowchart
+
+- CSS
+	제작툴피그마 : https://www.figma.com/file/qWIQAuMmW60sJF00KQogxC/Untitled?node-id=0%3A1
+	이미지 배경 제거 : https://www.remove.bg/ko
+	파비콘 생성 :  https://www.degraeve.com/
+	아이콘 Font Awesome : https://fontawesome.cc/Brands/
+	로딩 이미지 : https://loading.io/
+	부트스트랩 테마 : https://startbootstrap.com/theme/coming-soon
+	일러스트(셔터스톡): https://www.shutterstock.com/ko/
+	백그라운드 동영상 : https://www.gomlab.com/
+	동영상 소스
+		Fantastic Fungi - The Spirit of Good
+		National Geographic  - Kingdom Of The Forest - Fungi
+		Mushrooms  - A Timelapse Short Film
+		Glow in the Dark Mushrooms
+		Fly agaric growing and dying time lapse
+		Stephen Axford - How fungi changed my view of the world
+
+- 공공데이터
+	공공데이터 포털 : https://www.data.go.kr/
+	산림청 국립수목원_버섯자원서비스 : http://openapi.nature.go.kr/openapi/service/rest/FungiService
+	농촌진흥청 국립원예특작과학원_버섯이미지 조회 서비스 : http://apis.data.go.kr/1390804/NihhsMushroomImageInfo
+	산림청 국립수목원_국가표준버섯목록서비스 : http://apis.data.go.kr/1400119/KffniService1
+	농촌진흥청 국립원예특작과학원_원예특용작물 요리 조회 서비스 : http://apis.data.go.kr/1390804/NihhsRdaLifeInfo
+
+- 추가 버섯 정보 
+	국가표준버섯 목록 : http://nature.go.kr/kfni/SubIndex.do
+	네이처링(버섯관련 사진) :  https://www.naturing.net/o/card
+	독버섯 정보 - 농촌진흥청 국립원예특작과학원 : https://www.nihhs.go.kr/mushroom/
+	
+- 관련 논문
+	한국의 Amatoxins 중독증 : chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/viewer.html?pdfurl=https%3A%2F%2Fir.ymlib.yonsei.ac.kr%2Fbitstream%2F22282913%2F171984%2F1%2FT200002347.pdf&clen=88955
+	독버섯 식중독 예방을 위한 분포도 조사연구 : https://scienceon.kisti.re.kr/commons/util/originalView.do?cn=TRKO201400011726&dbt=TRKO&rn=
+	
+- 관련 뉴스 / 블로그
+	뭔가 싶어 먹어본 독버섯, 끔찍했다 : https://www.hani.co.kr/arti/society/environment/479272.html
+	‘야생버섯’ 먹은 80대, 복통 호소하다 결국 사망 : https://news.kbs.co.kr/news/view.do?ncd=5297229
+	산에서 발견한 독버섯이 귀한 버섯인줄 알고 가족들 먹였다가 전부 죽게 만든 할머니 : https://www.insight.co.kr/news/358043
+	국내에 자생중이라는 지상 최악의 맹독버섯 TOP 7 : https://post.naver.com/viewer/postView.nhn?volumeNo=20112806&memberNo=33556940
+	
+	
