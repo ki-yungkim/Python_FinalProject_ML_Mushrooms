@@ -1,5 +1,5 @@
 from flask import request, render_template, Blueprint
-from MushroomClassification.models import feature_model
+from MushroomClassification_1101.models import feature_model
 
 fe_bp = Blueprint('feature', __name__, url_prefix='/feature')
 fe_service = feature_model.FeatureService()
@@ -17,7 +17,7 @@ def Form():
     population = None
     return render_template('featureForm.html', cap_shape=cap_shape, cap_surface=cap_surface, cap_color=cap_color,bruises=bruises,odor=odor, gill_color=gill_color,population=population)
 
-# 버섯도감 목록 검색
+# 독버섯 여부 판별
 @fe_bp.route('/search', methods=['POST'])
 def search():
     cap_shape = int(request.form['cap_shape'])

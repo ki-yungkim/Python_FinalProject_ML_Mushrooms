@@ -13,6 +13,7 @@ class Feature:
         self.population = population
 
 class FeatureService:
+    # 머신러닝으로 학습된 모델을 통해 독버섯 여부 판별 결과 가져오는 메서드
     def getResult(self, feature):
         model = joblib.load('mushroom_stand_out_model.pkl')  # 사용할 모델 파일 로드
         arr = np.zeros(49, dtype=int)
