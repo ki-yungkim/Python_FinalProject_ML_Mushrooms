@@ -22,7 +22,6 @@ class imgClassifierService:
                                      num_workers=1)
         dataiter = iter(testImageloader)
         images, labels = dataiter.next()
-
         classes = ['Agaricus',
                    'Amanita',
                    'Boletus',
@@ -38,6 +37,7 @@ class imgClassifierService:
         result = (classes[predicted])
         return result
 
+    # 분류 된 결과와 관련된 추가 정보를 공공데이터 OPEN_API를 통해 불러오는 메서드
     def searchMushInfo(self, sw):
         sw = sw
         api_Key = ''

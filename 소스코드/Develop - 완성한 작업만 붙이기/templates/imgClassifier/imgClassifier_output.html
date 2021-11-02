@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>버섯 사진 판별 결과 보기</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -32,7 +31,7 @@
         $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
         });
     </script>
-
+    <title>이미지 속 분류 결과 보기</title>
 </head>
 <body>
 <!-- side menu-->
@@ -89,14 +88,13 @@
     </div>
 </div>
 </body>
-</html>
 <script>
+// 상세 검색 표시하기
 const $displaySpecP0 = document.getElementsByClassName("displaySpecP")[0];
 const $displaySpecButton = document.getElementById("displaySpecButton");
 const $mushroomSpecRight = document.getElementById("mushroomSpecRight");
 
 $displaySpecButton.addEventListener("click", () => {
-    // $displaySpecButton.style.visibility = "hidden";
     $mushroomSpecRight.style.visibility = "visible";
     $displaySpecP0.style.visibility = "hidden";
     $displaySpecButton.style.visibility = "hidden";
@@ -107,7 +105,6 @@ const $modalTitle = document.getElementById("modalTitle");
 const $modalPhoto = document.getElementById("modalPhoto");
 
 const openModal = (e1, e2) => {
-    // console.log(e);
     $modal.style.display = "flex";
     $modalTitle.innerHTML = e2;
     $modalPhoto.src = e1;
@@ -120,3 +117,4 @@ $modalPhoto.addEventListener("click", () => {
 </script>
 <!-- Bootstrap core JS-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+</html>

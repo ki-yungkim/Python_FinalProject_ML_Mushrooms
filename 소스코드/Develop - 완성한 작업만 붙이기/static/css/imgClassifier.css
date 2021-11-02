@@ -31,7 +31,6 @@
     color: rgb(240, 240, 240);
     cursor: pointer;
 }
-
 .searchBtn:disabled {
     text-align: center;
     width: 138px !important;
@@ -41,6 +40,17 @@
     padding: 6px 12px;
     color: rgb(200,200,200);
     background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+.searchBtn:enabled:hover {
+    text-align: center;
+    width: 138px !important;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 6px 12px;
+    background-color: #FAD496;
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 

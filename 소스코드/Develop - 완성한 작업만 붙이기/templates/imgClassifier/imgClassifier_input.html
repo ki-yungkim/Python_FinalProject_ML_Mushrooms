@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>이미지 분석</title>
         <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon2.ico')}}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -20,7 +19,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="{{url_for('static', filename='js/scripts.js')}}" ></script>
-
         <!-- Loading -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/loading.css')}}"/>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -38,7 +36,7 @@
             $("[data-toggle='tooltip']").tooltip({'placement': 'left'});
             });
         </script>
-    <title>버섯 사진 판별</title>
+    <title>이미지로 속 분류</title>
 </head>
 <body>
 <!-- loading page -->
@@ -61,8 +59,7 @@
 </video>
 <!-- imgClassifier_input -->
 <div class="masthead">
-    <div class="masthead-content masthead-content-custom text-white">
-            <!-- <p class="title">버섯 사진을 검색해보세요.</p> -->
+    <div class="masthead-content masthead-content-custom text-white" style="padding-right: 6rem !important">
             <h1 class="fst-italic lh-1 mb-4" style="font-size: 2.7rem !important">버섯 사진을 검색해보세요.</h1>
             <p class="sentence2 ">버섯 사진을 분석하여 9가지 속으로 분류 할 수 있습니다.</p>
             <p class="sentence2">
@@ -80,9 +77,7 @@
                         속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.
                     </span>
                 </span>
-
             </p>
-                <!-- <p class="tooltip-custom"> 속(genus)은 생물 분류 단계 중 하나로, 종-속-과-목-강-문-계-역-생명으로 구성된 생물 분류 중 아래에서 두번째 단계입니다.</p> -->
             <p class="sentence2 tooltip-custom-open" style="padding-bottom: 10px;">
                 분류하는 <b>9가지 속</b> 목록
                 <span class="customToolTip">
@@ -99,8 +94,6 @@
                     </span>
                 </span>
             </p>
-            <!-- <p class="sentence tooltip-custom">Agaricus, Amanita, Boletus,Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus</p> -->
-            <!-- <form name="imageSearch" method="POST" id="imageSearch" action="/mushroom/imageSearch" enctype="multipart/form-data"> -->
             <form name="imageSearch" id="imageSearch"  enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-5" style="padding: 0">
@@ -124,15 +117,16 @@
 const $uploadFile = document.querySelector("#uploadfile");
 const $inputFileName = document.querySelector("#inputFileName");
 const $formUploadButton = document.querySelector("#searchBtn");
-
+// 업로드할 파일 형식 배열
 const fileTypes = [
     "image/jpeg",
     "image/png"
 ]
-
+// 업로드할 파일 검증 메서드
 const validFileType = (file) => {
     return fileTypes.includes(file.type);
 }
+//  업로드할 파일 크기 출력 메서드
 const returnFileSize = (number) => {
     if(number < 1024) {
         return number + 'bytes';
@@ -143,7 +137,7 @@ const returnFileSize = (number) => {
     }
 }
 let uploadReady = new Boolean(false);
-
+//파일 업로드를 위한 메서드
 const updateImageFile = () => {
     const currentFiles = $uploadFile.files;
     if(currentFiles.length === 0) {
@@ -157,6 +151,7 @@ const updateImageFile = () => {
             $formUploadButton.removeAttribute("disabled");
         } else {
             $inputFileName.textContent = `${file.name} 은 적합한 파일이 아닙니다.`;
+            $formUploadButton.setAttribute("disabled", "");
         }
     }
 }
@@ -179,21 +174,19 @@ for(let i=0; i<$customToolTipMark.length; i++) {
    });
 }
 
-
 // 파일 업로드 처리하기
 const uploadProcess = () => {
     const $imageSearch = document.querySelector("#imageSearch");
     if(uploadReady == true) {
         $imageSearch.method = "POST";
         $imageSearch.action = "/mushroom/imageSearch";
+    } else {
+        alert("처음부터 다시 진행해주세요.");
     }
 }
 
 $formUploadButton.addEventListener("click", uploadProcess);
-
 </script>
-
 <!-- Bootstrap core JS-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
-
 </html>
