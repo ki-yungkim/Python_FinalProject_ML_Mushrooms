@@ -66,19 +66,19 @@ def testSurviveOrDeath():
     # return render_template('/imgQuestion/question4.html')
 
 
-# 독버섯 정보1
+# 독버섯 정보 - 독버섯 구별법
 @re_bp.route('/poisonousMushroom')
 def poisonousMushroom():
     return render_template('/imgQuestion/poisonousMushroom1.html')
 
 
-# 독버섯 정보2
+# 독버섯 정보 - 독버섯 분포현황
 @re_bp.route('/poisonousMushroom2')
 def poisonousMushroom2():
     return render_template('/imgQuestion/poisonousMushroom2.html')
 
 
-# 독버섯 정보3
+# 독버섯 정보 - 중독사고 발생 현황
 @re_bp.route('/poisonousMushroom3')
 def poisonousMushroom3():
     return render_template('/imgQuestion/poisonousMushroom3.html')
