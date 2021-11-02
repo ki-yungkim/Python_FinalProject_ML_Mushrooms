@@ -2,6 +2,8 @@ import requests
 import random
 from bs4 import BeautifulSoup
 
+
+# 버섯 API 저장될 클래스
 class Resource:
     def __init__(self, familyKorNm=None,familyNm=None, fngsGnrlNm=None,
                  fngsPilbkNo=None, genusKorNm=None, genusNm=None):
@@ -19,6 +21,7 @@ class Resource:
         self.genusNm = genusNm
 
 
+# 서비스 클래스
 class Service:
     def __init__(self):
         self.base_url = 'http://openapi.nature.go.kr/openapi/service/rest/FungiService'
@@ -117,7 +120,6 @@ class Service:
         else:
             print('오류발생코드: ', code)
             print('오류 메시지: ', resultMsg)
-
 
     # 이미지퀴즈 오답페이지에 들어가는 버섯명언
     def advice(self):
